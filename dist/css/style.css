@@ -51,7 +51,7 @@ img {
 }
 
 .navbar img {
-  height: 120px;
+  height: 100px;
 }
 
 .navbar ul {
@@ -235,27 +235,26 @@ img {
 /* Tablets and under */
 @media(max-width: 768px) {
   .grid,
-  .showcase,
+  /* .navbar, */
+  .showcase .grid,
   .services,
   .about .grid,
-  .contact,
   .footer .grid .grid-3 {
     grid-template-columns: 1fr;
   }
 
-  .showcase {
-    height: auto;
+  .navbar .flex {
+    flex-direction: column;
   }
+
+  /* .showcase {
+    height: auto;
+  } */
 
   .showcase-text {
     text-align: center;
     margin-top: 40px;
     margin-bottom: 40px;
-  }
-
-  .contact-form {
-    justify-self: center;
-    margin: auto;
   }
 
   .about .grid-4 > *:first-child {
@@ -267,16 +266,12 @@ img {
 
 /* Mobile */
 @media(max-width: 500px) {
-  .navbar {
-    height: 110px;
-  }
-
   .navbar .flex {
     flex-direction: column;
   }
 
-  .navbar ul {
+  /* .navbar ul {
     padding: 10px;
     background-color: rbga(0,0,0,0.1);
-  }
+  } */
 }
