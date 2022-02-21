@@ -43,7 +43,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact">
             <div class="mb-3">
               <label for="first-name" class="col-form-label">
                 First Name:
@@ -62,6 +63,7 @@
               <label for="message" class="col-form-label">Message:</label>
               <textarea class="form-control" id="message" rows="3"></textarea>
             </div>
+            <div data-netlify-recaptcha="true"></div>
           </form>
         </div>
         <div class="modal-footer">
