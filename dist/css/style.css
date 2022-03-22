@@ -135,7 +135,7 @@ img {
 
 .services .card {
   text-align: center;
-  margin: 18px 10px 40px;
+  margin: 15px;
   transition: transform 0.2s ease-in;
   width: 900px;
   height: 250px;
@@ -240,7 +240,7 @@ img {
   .showcase .grid,
   .services,
   .about .grid,
-  .footer .grid .grid-3 {
+  .footer .grid .grid-3 .grid-stacked {
     grid-template-columns: 1fr;
   }
 
@@ -263,12 +263,28 @@ img {
     text-align: center;
     justify-self: center;
   }
+
+  .services .card {
+    text-align: center;
+    margin: 15px;
+    transition: transform 0.2s ease-in;
+    width: 500px;
+    height: 300px;
+  }
 }
 
 /* Mobile */
 @media(max-width: 500px) {
   .navbar .flex {
     flex-direction: column;
+  }
+
+  .services .card {
+    text-align: center;
+    margin: 15px;
+    transition: transform 0.2s ease-in;
+    width: 300px;
+    height: 500px;
   }
 
   /* .navbar ul {
