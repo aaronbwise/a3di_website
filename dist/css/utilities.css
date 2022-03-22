@@ -11,7 +11,8 @@
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  margin: 10px;
+  margin: 5px;
+  width: 100;
 }
 
 .btn {
@@ -94,11 +95,9 @@
 
 .grid-stacked {
   display: grid;
-  grid-template-columns: repeat(1fr);
-  gap: 20px;
+  grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
-  height: 100%;
 }
 
 /* Margin */

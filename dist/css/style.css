@@ -18,6 +18,8 @@ body {
   line-height: 1.6;
 }
 
+
+
 ul {
   list-style-type: none;
 }
@@ -122,26 +124,26 @@ img {
 }
 
 .services p {
-  margin: 20px 0;
-  font-size: 20px;
+  margin: 5px 0;
+  font-size: 16px;
   text-align: center;
 }
 
-.services .flex {
+/* .services .flex {
   flex-wrap: wrap;
-}
+} */
 
 .services .card {
   text-align: center;
   margin: 18px 10px 40px;
   transition: transform 0.2s ease-in;
-  width: 200px;
-  height: 350px;
+  width: 900px;
+  height: 250px;
 }
 
 .services .card h3 {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 .services .card p {
