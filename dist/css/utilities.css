@@ -92,6 +92,15 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+.grid-stacked {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 /* Margin */
 
 .my-1 {
