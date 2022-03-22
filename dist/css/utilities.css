@@ -6,13 +6,16 @@
   padding: 0 40px;
 }
 
+.container .grid-stacked {
+  padding: 10px;
+}
+
 .card {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin: 5px;
-  width: 100;
 }
 
 .btn {
@@ -98,6 +101,10 @@
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
+}
+
+.grid-stacked .card {
+  margin: 10px;
 }
 
 /* Margin */
