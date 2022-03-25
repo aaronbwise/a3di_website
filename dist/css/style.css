@@ -48,7 +48,7 @@ img {
 /* Navbar */
 
 .navbar {
-  background-color: #fff;
+  /* background-color: #fff; */
   color: var(--secondary-color);
 }
 
@@ -59,10 +59,6 @@ img {
 .navbar ul {
   display: flex;
 }
-
-/* .navbar-light {
-  background-color: #fff;
-} */
 
 .navbar li {
   text-align: center;
