@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 :root {
   --primary-color: #3075ff;
@@ -14,11 +14,9 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.6;
 }
-
-
 
 ul {
   list-style-type: none;
@@ -29,11 +27,13 @@ a {
   color: var(--secondary-color);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 300;
   line-height: 1.2;
   margin: 10px 0;
-  color: var(--secondary-color);  
+  color: var(--secondary-color);
 }
 
 p {
@@ -53,7 +53,7 @@ img {
 }
 
 .navbar img {
-  height: 100px;
+  height: auto;
 }
 
 .navbar ul {
@@ -89,10 +89,9 @@ img {
 
 .showcase {
   height: 600px;
-  background: url('../img/showcase1.jpg') no-repeat center center/cover;
+  background: url("../img/showcase1.jpg") no-repeat center center/cover;
   position: relative;
 }
-
 
 .showcase h1 {
   font-size: 50px;
@@ -190,7 +189,7 @@ img {
 }
 
 .about img {
-  width:150px;
+  width: 150px;
   border-radius: 50%;
   align-self: center;
 }
@@ -215,7 +214,6 @@ img {
   text-align: center;
 }
 
-
 .footer {
   padding: 30px;
   text-align: center;
@@ -233,9 +231,8 @@ img {
   color: var(--primary-color);
 }
 
-
 /* Tablets and under */
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .grid,
   /* .navbar, */
   .showcase .grid,
@@ -275,7 +272,7 @@ img {
 }
 
 /* Mobile */
-@media(max-width: 500px) {
+@media (max-width: 500px) {
   .navbar .flex {
     flex-direction: column;
   }
