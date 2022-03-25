@@ -24,6 +24,7 @@
   cursor: pointer;
   border: none;
   border-radius: 5px;
+  height: 35px;
 }
 
 .btn-outline {
@@ -59,7 +60,7 @@
 .btn-secondary a,
 .bg-dark a,
 .btn-dark a {
-    color: #fff;
+  color: #fff;
 }
 
 .bg-light,
@@ -89,8 +90,8 @@
 }
 
 .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  grid-template-columns: repeat(3, 1fr);
+}
 
 .grid-4 {
   grid-template-columns: repeat(4, 1fr);
@@ -120,14 +121,14 @@
 /* Padding */
 
 .py-5 {
-    padding: 3rem;
+  padding: 3rem;
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.55);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
 }

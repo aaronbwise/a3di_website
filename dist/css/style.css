@@ -52,13 +52,17 @@ img {
   color: var(--secondary-color);
 }
 
-.navbar img {
+/* .navbar img {
   height: auto;
-}
+} */
 
 .navbar ul {
   display: flex;
 }
+
+/* .navbar-light {
+  background-color: #fff;
+} */
 
 .navbar li {
   text-align: center;
@@ -77,6 +81,14 @@ img {
 
 .navbar .flex {
   justify-content: space-between;
+}
+
+.navbar-brand {
+  max-height: 133px;
+  max-width: 200px;
+  overflow: visible;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 /* Modal */
