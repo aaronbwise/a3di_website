@@ -177,9 +177,6 @@ img {
   padding: 30px;
 }
 
-.about .grid-4 > *:first-child {
-  grid-column: 1 / span 3;
-}
 
 .about-heading {
   max-width: 500px;
@@ -248,15 +245,12 @@ img {
   .about .grid,
   .footer .grid .grid-3 .grid-stacked {
     grid-template-columns: 1fr;
+    align-items: center;
   }
 
   .navbar .flex {
     flex-direction: column;
   }
-
-  /* .showcase {
-    height: auto;
-  } */
 
   .showcase-text {
     text-align: center;
@@ -264,10 +258,11 @@ img {
     margin-bottom: 40px;
   }
 
-  .about .grid-4 > *:first-child {
+  .about .grid-4 {
     grid-column: 1;
     text-align: center;
     justify-self: center;
+    align-items: center;
   }
 
   .services .card {
@@ -291,6 +286,13 @@ img {
     transition: transform 0.2s ease-in;
     width: 300px;
     height: 500px;
+  }
+
+  .about .grid-4 {
+    grid-column: 1;
+    text-align: center;
+    justify-self: center;
+    align-items: center;
   }
 
   /* .navbar ul {
