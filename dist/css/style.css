@@ -248,6 +248,13 @@ img {
     align-items: center;
   }
 
+  .about .col,
+  .about .col-9 {
+    align-items: center;
+    text-align: center;
+    width: auto;
+  }
+
   .navbar .flex {
     flex-direction: column;
   }
