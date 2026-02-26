@@ -2,22 +2,41 @@
 <html lang="en">
 
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-431J69QZ4M"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-431J69QZ4M');
-    </script>
     <meta charset="UTF-8">
     <meta name="description"
         content="A3DI helps development & humanitarian organisations use data to generate evidence-based, actionable insights for their programmes.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="A3DI | Better results through data">
+    <meta property="og:description"
+        content="A3DI helps development & humanitarian organisations use data to generate evidence-based, actionable insights for their programmes.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.a3di.dev/">
+    <meta property="og:image" content="https://www.a3di.dev/img/optimized_logo.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="A3DI | Better results through data">
+    <meta name="twitter:description"
+        content="A3DI helps development & humanitarian organisations use data to generate evidence-based, actionable insights for their programmes.">
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script defer src="https://kit.fontawesome.com/9a0aea4ea3.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="img/showcase1.jpg">
+
     <style>
         html,
         body {
@@ -25,7 +44,7 @@
         }
     </style>
     <title>A3DI | Better results through data</title>
-    <link rel="icon" type="image/jpg" href="img/favicon.jpg">
+    <link rel="icon" type="image/jpeg" href="img/favicon.jpg">
 </head>
 
 <body>
@@ -71,19 +90,22 @@
                     <form name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true">
                         <div class="mb-3">
                             <label for="first-name" class="col-form-label">First Name:</label>
-                            <input type="text" name="first-name" class="form-control" id="first-name" />
+                            <input type="text" name="first-name" class="form-control" id="first-name" required
+                                maxlength="100" />
                         </div>
                         <div class="mb-3">
                             <label for="last-name" class="col-form-label">Last Name:</label>
-                            <input type="text" name="last-name" class="form-control" id="last-name" />
+                            <input type="text" name="last-name" class="form-control" id="last-name" required
+                                maxlength="100" />
                         </div>
                         <div class="mb-3">
                             <label for="email" class="col-form-label">Email:</label>
-                            <input type="email" name="email" class="form-control" id="email" />
+                            <input type="email" name="email" class="form-control" id="email" required />
                         </div>
                         <div class="mb-3">
                             <label for="message" class="col-form-label">Message:</label>
-                            <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                            <textarea class="form-control" name="message" id="message" rows="3" required
+                                maxlength="1000"></textarea>
                         </div>
                         <div data-netlify-recaptcha="true"></div>
                         <button class="btn btn-primary" type="submit">Send</button>
@@ -114,7 +136,7 @@
             <p>A3DI can help your organisation no matter where you are along the evidence pathway...</p>
             <div class="container grid-stacked">
                 <div class="card my-4">
-                    <i class="fas fa-clipboard-list fa-3x"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" width="48" height="48"><path d="M192 0c-41.8 0-77.4 26.7-90.5 64H64C28.7 64 0 92.7 0 128v320c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64h-37.5C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM72 272a24 24 0 1 1 48 0 24 24 0 1 1-48 0zm104-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H176c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 96h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H176c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
                     <h3>Survey Design & Implementation</h3>
                     <p class="text-secondary">Understanding (and clarifying) the key information you need. Designing the
                         right methodology to maximise financial resources. Developing data collection tools for any
@@ -122,7 +144,7 @@
                         enumerators and managing data collection operations.</p>
                 </div>
                 <div class="card my-4">
-                    <i class="fas fa-laptop-code fa-3x"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" width="48" height="48"><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/></svg>
                     <h3>Data Analysis & Management</h3>
                     <p class="text-secondary">Designing data storage and cleaning solutions that account for your
                         organisation's internal capacity. Exploring data using a variety of statistical methods to
@@ -131,14 +153,14 @@
                     </p>
                 </div>
                 <div class="card my-4">
-                    <i class="fas fa-chart-line fa-3x"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="48" height="48"><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64v336c0 44.2 35.8 80 80 80h400c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></svg>
                     <h3>Visualisation & Comms</h3>
                     <p class="text-secondary">Developing dashboards (e.g., Tableau, PowerBI) and infographics for
                         displaying key findings and KPIs. Drafting shorter (Powerpoint) and longer reports to
                         communicate methods and findings to technical and non-technical audiences.</p>
                 </div>
                 <div class="card my-4">
-                    <i class="fas fa-user-group fa-3x"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" width="48" height="48"><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96H213.3C125.3 320 48 397.3 48 485.3c0 14.7-11.9 26.7-26.7 26.7C9.6 512 0 502.4 0 490.7V298.7zM640 490.7c0 11.7-9.5 21.3-21.3 21.3c-14.8 0-26.7-12-26.7-26.7C592 397.3 514.7 320 426.7 320H405c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7v192zM320 128a96 96 0 1 1 0 192 96 96 0 1 1 0-192zm-94.8 256h189.5c55.2 0 100 44.8 100 100c0 15.5-12.6 28-28 28H153.3c-15.5 0-28-12.5-28-28c0-55.2 44.8-100 100-100z"/></svg>
                     <h3>Trainings</h3>
                     <p class="text-secondary">Transferring capacity in core evidence pathway skills (survey design, data
                         analysis/management, and visualisation) to your internal staff. Teaching the best practices and
@@ -153,11 +175,12 @@
     <section id="about" class="about">
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-12 col-md-3">
                     <h2>Hi, I'm Aaron</h2>
-                    <img src="img/aw_headshot_jpg.jpg" alt="Aaron Wise headshot">
+                    <img src="img/optimized_aw_headshot.jpg" alt="Aaron Wise headshot" loading="lazy" width="150"
+                        height="150">
                 </div>
-                <div class="col-9">
+                <div class="col-12 col-md-9">
                     <p class="my-1">I have worked with UN agencies and NGOs throughout Africa and Asia over the past 15
                         years on data-related projects within the food security, nutrition, and social protection
                         sectors. I am driven to help organisations leverage data and technology to improve their
@@ -166,6 +189,7 @@
                     <a href="https://www.aaronbwise.com" class="btn btn-dark" target="_blank">CV</a>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -173,29 +197,71 @@
         <div class="container grid grid-3">
             <div>
                 <p><strong>Advanced Analytics for Actionable Development Insights</strong></p>
-                <p>Copyright &copy; 2022</p>
+                <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script></p>
             </div>
             <div class="social">
-                <a href="https://www.linkedin.com/in/aaronbwise/" target="_blank"><i
-                        class="fab fa-linkedin fa-2x"></i></a>
-                <a href="https://github.com/aaronbwise" target="_blank"><i class="fab fa-github fa-2x"></i></a>
-                <a href="https://twitter.com/AA3di" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="https://www.linkedin.com/in/aaronbwise/" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="32" height="32"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+                </a>
+                <a href="https://github.com/aaronbwise" target="_blank" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" fill="currentColor" width="32" height="32"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+                </a>
+                <a href="https://twitter.com/AA3di" target="_blank" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="32" height="32"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                </a>
             </div>
             <div>
-                <a href="#"><i class="fas fa-circle-arrow-up fa-2x"></i></a>
+                <a href="#" aria-label="Back to top">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="32" height="32"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM385 231c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-71-71V376c0 13.3-10.7 24-24 24s-24-10.7-24-24V193.9l-71 71c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 119c9.4-9.4 24.6-9.4 33.9 0L385 231z"/></svg>
+                </a>
             </div>
         </div>
     </footer>
 
+    <!-- Cookie consent banner -->
+    <div id="cookie-consent" class="cookie-consent" style="display: none;">
+        <p>This site uses cookies for analytics. Do you consent to the use of cookies?</p>
+        <button id="cookie-accept" class="cookie-accept">Accept</button>
+        <button id="cookie-decline" class="cookie-decline">Decline</button>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <!-- Additional check to ensure no conflicts -->
+
+    <!-- Google Analytics (loaded conditionally based on cookie consent) -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            console.log('Bootstrap:', typeof bootstrap !== 'undefined');
-            console.log('Popper.js:', typeof Popper !== 'undefined');
-        });
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+
+        function loadGA() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-431J69QZ4M';
+            document.head.appendChild(s);
+            gtag('js', new Date());
+            gtag('config', 'G-431J69QZ4M');
+        }
+
+        (function () {
+            var match = document.cookie.match(/cookie_consent=([^;]+)/);
+            if (match && match[1] === 'accepted') {
+                loadGA();
+            } else if (!match) {
+                document.getElementById('cookie-consent').style.display = 'flex';
+            }
+
+            document.getElementById('cookie-accept').addEventListener('click', function () {
+                document.cookie = 'cookie_consent=accepted; max-age=31536000; path=/; SameSite=Lax';
+                loadGA();
+                document.getElementById('cookie-consent').style.display = 'none';
+            });
+
+            document.getElementById('cookie-decline').addEventListener('click', function () {
+                document.cookie = 'cookie_consent=declined; max-age=31536000; path=/; SameSite=Lax';
+                document.getElementById('cookie-consent').style.display = 'none';
+            });
+        })();
     </script>
 </body>
 

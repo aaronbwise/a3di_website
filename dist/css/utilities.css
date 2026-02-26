@@ -1,8 +1,19 @@
-/* Utilitites */
+/* Utilities */
+
+:root {
+  --bs-primary: #3075ff;
+  --bs-primary-rgb: 48, 117, 255;
+  --bs-secondary: #0d1d3f;
+  --bs-secondary-rgb: 13, 29, 63;
+  --bs-dark: #002240;
+  --bs-dark-rgb: 0, 34, 64;
+  --bs-light: #f4f4f4;
+  --bs-light-rgb: 244, 244, 244;
+}
+
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  overflow: auto;
   padding: 0 40px;
 }
 
@@ -18,59 +29,8 @@
   margin: 5px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 5px 15px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  height: 35px;
-}
-
 .btn-outline {
   border: 1px #fff solid;
-}
-
-.btn:hover {
-  transform: scale(0.98);
-}
-
-/* Background & colour buttons */
-.bg-primary,
-.btn-primary {
-  background-color: var(--primary-color);
-  color: #fff;
-}
-
-.bg-secondary,
-.btn-secondary {
-  background-color: var(--secondary-color);
-  color: #fff;
-}
-
-.bg-dark,
-.btn-dark {
-  background-color: var(--dark-color);
-  color: #fff;
-}
-
-.bg-primary a,
-.btn-primary a,
-.bg-secondary a,
-.btn-secondary a,
-.bg-dark a,
-.btn-dark a {
-  color: #fff;
-}
-
-.bg-light,
-.btn-light {
-  background-color: var(--light-color);
-  color: #333;
-}
-
-.text-center {
-  text-align: center;
 }
 
 .flex {
