@@ -244,20 +244,6 @@ img {
   margin: 10px 0;
 }
 
-.case-study-client {
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--light-color);
-  text-align: center;
-}
-
-.case-study-logo {
-  width: auto;
-  max-width: 130px;
-  max-height: 50px;
-  object-fit: contain;
-  opacity: 0.8;
-}
 
 /* About */
 
