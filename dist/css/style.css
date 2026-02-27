@@ -156,6 +156,109 @@ img {
   color: #3075ff;
 }
 
+/* Case Studies */
+
+.case-studies {
+  padding: 30px 0;
+  background-color: var(--light-color);
+}
+
+.case-studies-heading {
+  max-width: 500px;
+  margin: auto;
+}
+
+.case-studies > .container > p {
+  text-align: center;
+}
+
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 420px));
+  gap: 30px;
+  justify-content: center;
+  padding: 0;
+}
+
+.case-study-card {
+  text-align: left;
+  width: 100%;
+  height: auto;
+  padding: 30px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-study-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.code-accent {
+  position: absolute;
+  top: 16px;
+  right: -10px;
+  font-family: "Courier New", Consolas, monospace;
+  font-size: 0.6rem;
+  line-height: 1.4;
+  color: var(--primary-color);
+  opacity: 0.07;
+  white-space: pre;
+  pointer-events: none;
+  user-select: none;
+  transform: rotate(2deg);
+}
+
+.case-study-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.badge-tag {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+.case-study-subtitle {
+  font-size: 0.95rem;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.case-study-body {
+  flex: 1;
+}
+
+.case-study-body p {
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.case-study-client {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--light-color);
+  text-align: center;
+}
+
+.case-study-logo {
+  width: auto;
+  max-width: 130px;
+  max-height: 50px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
 /* About */
 
 .about {
