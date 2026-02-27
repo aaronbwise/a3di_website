@@ -1,2 +1,14 @@
 [build]
+  command = "npm run build"
   publish = "dist"
+
+[[redirects]]
+  from = "/case-studies/alive-and-thrive.html"
+  to = "/case-studies/alive-and-thrive"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
