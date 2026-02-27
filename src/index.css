@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3075ff;
+  --color-secondary: #0d1d3f;
+  --color-dark: #002240;
+  --color-light: #f4f4f4;
+  --font-sans: "Montserrat", sans-serif;
+  --font-mono: "Courier New", Consolas, monospace;
+}
+
+@layer base {
+  body {
+    @apply font-sans leading-relaxed text-secondary;
+  }
+  h1, h2, h3 {
+    @apply font-light leading-tight text-secondary my-2.5;
+  }
+  a {
+    @apply no-underline text-secondary;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  p {
+    @apply text-secondary my-2.5;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+/* Mermaid diagram — cannot use Tailwind on Mermaid-generated SVG DOM */
+@layer components {
+  .mermaid-wrapper svg {
+    transform: scale(1.4);
+    transform-origin: center;
+    margin: 2.5rem 0;
+  }
+  @media (max-width: 768px) {
+    .mermaid-wrapper {
+      overflow-x: auto;
+    }
+    .mermaid-wrapper svg {
+      transform: scale(1);
+      margin: 1.25rem 0;
+    }
+  }
+}

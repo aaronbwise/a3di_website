@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" />
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="/img/showcase1.jpg" />
+
+  <link rel="icon" type="image/jpeg" href="/img/favicon.jpg" />
+  <title>A3DI | Better results through data</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Hidden form for Netlify post-processing (field names MUST match ContactModal.jsx) -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="first-name" />
+    <input type="text" name="last-name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+  </form>
+
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
