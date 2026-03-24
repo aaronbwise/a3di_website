@@ -23,11 +23,14 @@ export default function HomePage() {
       <Helmet>
         <title>{siteMetadata.defaultTitle}</title>
         <meta name="description" content={siteMetadata.defaultDescription} />
-        <meta property="og:title" content={siteMetadata.defaultTitle} />
-        <meta property="og:description" content={siteMetadata.defaultDescription} />
+        <meta property="og:title" content={siteMetadata.defaultOgTitle} />
+        <meta property="og:description" content={siteMetadata.defaultOgDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={siteMetadata.siteUrl} />
         <meta property="og:image" content={siteMetadata.defaultOgImage} />
+        <meta property="og:image:width" content={siteMetadata.defaultOgImageWidth} />
+        <meta property="og:image:height" content={siteMetadata.defaultOgImageHeight} />
+        <meta property="og:image:type" content={siteMetadata.defaultOgImageType} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={siteMetadata.defaultTitle} />
         <meta name="twitter:description" content={siteMetadata.defaultDescription} />
