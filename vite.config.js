@@ -9,6 +9,7 @@ export default defineConfig({
         cv: resolve(__dirname, 'cv/index.html'),
         aliveAndThrive: resolve(__dirname, 'case-studies/alive-and-thrive.html'),
         unicefDq: resolve(__dirname, 'case-studies/unicef-dq-screener.html'),
+        namibiaNhies: resolve(__dirname, 'case-studies/namibia-nhies.html'),
       },
     },
   },

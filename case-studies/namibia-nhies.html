@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informing National Fortification Policy | Aaron Wise</title>
+  <meta name="description" content="Weighted analysis of Namibia's household income and expenditure survey to inform national food fortification strategy." />
+  <link rel="icon" type="image/jpeg" href="/img/favicon.jpg" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <a href="/" class="brand-name">Aaron Wise</a>
+        <span class="brand-sub">A3DI</span>
+      </div>
+      <nav>
+        <div class="nav-dropdown">
+          <a href="/#work" class="nav-dropdown-toggle">Case Studies</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="/case-studies/alive-and-thrive.html">Alive &amp; Thrive MCHN Equity</a></li>
+            <li><a href="/case-studies/unicef-dq-screener.html">UNICEF JME Data Quality</a></li>
+            <li><a href="/case-studies/namibia-nhies.html">Namibia NHIES Fortification</a></li>
+          </ul>
+        </div>
+        <a href="/cv/">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a href="/" class="back-link">&larr; Home</a>
+
+    <div class="case-study-header">
+      <h1>Informing National Fortification Policy</h1>
+      <p class="subtitle">Household grain consumption analysis from Namibia&rsquo;s NHIES for the Iodine Global Network</p>
+
+      <div class="meta-bar">
+        <div class="meta-item">
+          <div class="label">Client</div>
+          <div class="value">Iodine Global Network (IGN)</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Sector</div>
+          <div class="value">Food security &amp; micronutrient fortification</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Country</div>
+          <div class="value">Namibia</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Data</div>
+          <div class="value">NHIES 2015&ndash;16 (12-month national survey)</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Duration</div>
+          <div class="value">Jul&ndash;Aug 2020</div>
+        </div>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-number">14</span>
+          <span class="stat-label">Regions</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Months of data</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Staple crops</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">5+</span>
+          <span class="stat-label">Stratifiers</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="case-study-section">
+      <h2>Challenge</h2>
+      <p>
+        Namibia&rsquo;s government was developing its Food and Nutrition Security Policy
+        and Implementation Action Plan (2019&ndash;2024), which included mandatory
+        fortification of staple foods as a strategy to address micronutrient
+        deficiencies. But before deciding which foods to fortify, policymakers needed
+        to understand which grains Namibian households actually consume, how consumption
+        varies across regions and demographics, and whether households source their grain
+        from own production or purchase it from markets (since only commercially processed
+        grain can be fortified).
+      </p>
+      <p>
+        The Iodine Global Network commissioned A3DI to analyse microdata from the
+        2015&ndash;16 National Household Income and Expenditure Survey (NHIES), a
+        12-month nationally representative survey conducted by the Namibia Statistics
+        Agency. The raw data included seven-day food diary entries linked to household
+        demographics and income data, but had not been analysed for grain consumption
+        patterns at the level of detail needed for fortification planning.
+      </p>
+    </section>
+
+    <section class="case-study-section">
+      <h2>Approach</h2>
+      <p>
+        A3DI built a reproducible analysis pipeline in Python using Jupyter notebooks
+        and a custom analytics module designed for weighted survey data. The module
+        provided three core functions: weighted means, weighted medians, and a
+        generalised disaggregation function that could stratify any outcome variable
+        across multiple demographic and geographic dimensions.
+      </p>
+
+      <div class="pipeline-diagram">NHIES cleaned CSV (12 months, all regions)
+    &darr;
+Date reconstruction &amp; filtering (Apr 2015 onward)
+    &darr;
+Feature engineering (household IDs, survey weights, demographics)
+    &darr;
+Three parallel analyses:
+    1. Crop production by region (maize, millet, sorghum, wheat)
+    2. Grain consumption patterns (own production vs. purchased)
+    3. Publication-ready visualisations by region and season</div>
+
+      <p>
+        The analysis categorised food diary items into grain types (wheat products,
+        mahangu/pearl millet, maize, sorghum) and tracked consumption sources to
+        distinguish between own-production grain and market-purchased grain. This
+        distinction is critical for fortification policy: only grain that passes through
+        commercial milling can be fortified.
+      </p>
+      <p>
+        All calculations used the NHIES survey weights to produce nationally
+        representative estimates. Results were disaggregated by region, urban/rural
+        classification, education level, and household head demographics, then
+        validated against Ministry of Agriculture administrative data and FAO Global
+        Information and Early Warning System (GIEWS) figures.
+      </p>
+    </section>
+
+    <section class="case-study-section">
+      <h2>Result</h2>
+      <p>
+        The analysis revealed significant regional variation in both grain consumption
+        patterns and sourcing. Own-production consumption exceeded 45% for certain grain
+        items in specific regions, indicating that a substantial share of household grain
+        intake would not be reached by mandatory commercial fortification alone.
+      </p>
+      <p>
+        The disaggregated tables and visualisations showed which regions relied most
+        heavily on which grains, and how consumption sources shifted across seasons and
+        demographic groups. These findings gave policymakers the evidence they needed
+        to target fortification strategies to the grain products and supply chains most
+        likely to reach vulnerable populations.
+      </p>
+      <p>
+        The analysis was delivered as reproducible Jupyter notebooks with Excel
+        workbook outputs (one sheet per crop variable per stratifier), enabling IGN
+        and government stakeholders to explore the results directly and update the
+        analysis as new survey data becomes available.
+      </p>
+    </section>
+
+    <div class="takeaway">
+      <h2>Key Takeaway</h2>
+      <p>
+        Fortification policy only works when it targets the foods people actually eat
+        through the supply chains they actually use. Disaggregated consumption analysis
+        from nationally representative surveys turns that question from a guess into
+        an evidence-based decision.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>&copy; 2025 Aaron Wise</span>
+        <div class="footer-links">
+          <a href="mailto:aaron@a3di.dev">aaron@a3di.dev</a>
+          <a href="https://www.linkedin.com/in/aaronbwise/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/aaronbwise" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
