@@ -108,15 +108,23 @@
         to harmonise data from 15+ rounds of MICS and DHS surveys across the three countries.
       </p>
 
-      <div class="pipeline-diagram">Raw SPSS          JSON config         Ingest &amp;          Merge household
-survey files  &rarr;  (per country-year) &rarr; standardise     &rarr;  &amp; individual records
-                                                              &darr;
-                                                     Compute MCHN indicators
-                                                        &darr;            &darr;
-                                                Disaggregated    Weighted logistic
-                                                tabulations       regression
-                                                        &darr;            &darr;
-                                                   Equity profiles &amp; presentations</div>
+      <div class="pipeline-diagram">
+        <div class="pipeline-row">
+          <div class="pipeline-node"><strong>Raw SPSS files</strong><span>survey microdata</span></div>
+          <div class="pipeline-node"><strong>JSON config</strong><span>per country-year</span></div>
+          <div class="pipeline-node"><strong>Ingest &amp; standardise</strong><span>variable mapping</span></div>
+          <div class="pipeline-node"><strong>Merge records</strong><span>household + individual</span></div>
+        </div>
+        <div class="pipeline-arrow">&darr;</div>
+        <div class="pipeline-node-wide">Compute MCHN indicators</div>
+        <div class="pipeline-arrow">&darr;</div>
+        <div class="pipeline-row">
+          <div class="pipeline-node"><strong>Disaggregated tabulations</strong><span>5 equity stratifiers</span></div>
+          <div class="pipeline-node"><strong>Weighted logistic regression</strong><span>trend analysis</span></div>
+        </div>
+        <div class="pipeline-arrow">&darr;</div>
+        <div class="pipeline-node-wide">Equity profiles &amp; presentations</div>
+      </div>
 
       <p>
         Each country-year combination required its own mapping of raw survey variables to

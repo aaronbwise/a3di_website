@@ -108,18 +108,21 @@
         data quality:
       </p>
 
-      <div class="pipeline-diagram">Survey CSVs (1,091 files)
-    &darr;
-Indicator Pipeline (10 calculator classes &rarr; 136 indicators per survey)
-    &darr;
-5 Independent Scoring Channels:
-    A: PCA composite scoring       (Where does this survey rank globally?)
-    B: Mahalanobis distance        (Unusual indicator combinations?)
-    C: Mixed-effects residuals     (Unusual for its country?)
-    E: Prevalence outlier          (Plausible prevalence estimates?)
-    F: Prevalence coherence        (Do prevalences make sense together?)
-    &darr;
-Tiered Review Priorities (Tier 1: 3+ channels &rarr; Tier 3: 1 channel)</div>
+      <div class="pipeline-diagram">
+        <div class="pipeline-node-wide">Survey CSVs<span>1,091 files</span></div>
+        <div class="pipeline-arrow">&darr;</div>
+        <div class="pipeline-node-wide">Indicator pipeline<span>10 calculator classes &rarr; 136 indicators per survey</span></div>
+        <div class="pipeline-arrow">&darr;</div>
+        <div class="pipeline-channels">
+          <div class="pipeline-node"><strong>PCA composite</strong><span>Global ranking</span></div>
+          <div class="pipeline-node"><strong>Mahalanobis</strong><span>Unusual combinations</span></div>
+          <div class="pipeline-node"><strong>Mixed-effects</strong><span>Country residuals</span></div>
+          <div class="pipeline-node"><strong>Prevalence outlier</strong><span>Plausibility check</span></div>
+          <div class="pipeline-node"><strong>Prevalence coherence</strong><span>Internal consistency</span></div>
+        </div>
+        <div class="pipeline-arrow">&darr;</div>
+        <div class="pipeline-node-wide">Tiered review priorities<span>Tier 1: 3+ channels &rarr; Tier 3: 1 channel</span></div>
+      </div>
 
       <p>
         The indicator pipeline handles the full measurement quality surface: completeness,
