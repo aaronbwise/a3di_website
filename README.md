@@ -1,44 +1,26 @@
-# A3DI Consulting Firm Website
+# Aaron Wise | A3DI
 
-**Live Website:** [https://www.a3di.dev/](https://www.a3di.dev/)
+**Live:** [https://www.a3di.dev/](https://www.a3di.dev/)
 
-## Overview
+Personal website for Aaron Wise / A3DI — data pipelines, code migration, and applied statistics for international development organisations.
 
-Official website for A3DI Consulting Firm, specializing in helping development and humanitarian organisations use data to generate evidence-based, actionable insights for their programmes.
+## Stack
 
-## Technology Stack
+- **Vite** (dev server + production build, no frameworks)
+- **Plain HTML + CSS** (multi-page, no JavaScript dependencies)
+- **Netlify** (hosting + deployment)
 
-- **React 19** with React Router for client-side routing
-- **Vite** for development and production builds
-- **Tailwind CSS 4** for utility-first styling
-- **Radix UI** for accessible dialog/modal components
-- **Mermaid** for flowchart diagrams in case studies
-- **Netlify** for hosting, form handling, and deployment
+## Pages
 
-## Features
-
-- **Responsive Design** — Fluid typography with `clamp()` and mobile-optimized layouts using Tailwind's responsive utilities
-- **Case Study Pages** — Dynamic slug-based routing with Mermaid diagrams and syntax-highlighted code blocks
-- **Contact Modal** — Accessible modal (Radix UI) with Netlify Forms integration
-- **GDPR Cookie Consent** — Google Analytics loads only after user consent
-- **SEO** — Per-page meta tags via React Helmet (Open Graph and Twitter Card support)
+- `/` — Homepage (services, case study cards)
+- `/cv/` — Full CV
+- `/case-studies/alive-and-thrive.html` — Multi-country MCHN equity analysis for Alive & Thrive
+- `/case-studies/unicef-dq-screener.html` — Data quality screening pipeline for UNICEF JME
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js (v18+)
-- npm
-
-### Installation
-
 ```bash
 npm install
-```
-
-### Development
-
-```bash
 npm run dev
 ```
 
@@ -46,19 +28,13 @@ npm run dev
 
 ```bash
 npm run build
-npm run preview   # preview the build locally
-```
-
-### Linting
-
-```bash
-npm run lint
+npm run preview
 ```
 
 ## Deployment
 
-The site deploys automatically to Netlify on push to `main`. Build configuration is defined in `netlify.toml`.
+Deploys automatically to Netlify on push to `main`. Build config in `netlify.toml`.
 
 ## Contact
 
-For inquiries, please contact `aaron@a3di.dev`.
+aaron@a3di.dev

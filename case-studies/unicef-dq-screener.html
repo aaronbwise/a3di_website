@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Quality Screening at Scale | Aaron Wise</title>
+  <meta name="description" content="Multi-channel statistical pipeline for automated quality screening of 1,000+ anthropometric surveys — UNICEF Joint Malnutrition Estimates." />
+  <link rel="icon" type="image/jpeg" href="/img/favicon.jpg" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <a href="/" class="brand-name">Aaron Wise</a>
+        <span class="brand-sub">A3DI</span>
+      </div>
+      <nav>
+        <div class="nav-dropdown">
+          <a href="/#work" class="nav-dropdown-toggle">Case Studies</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="/case-studies/alive-and-thrive.html">Alive &amp; Thrive MCHN Equity</a></li>
+            <li><a href="/case-studies/unicef-dq-screener.html">UNICEF JME Data Quality</a></li>
+          </ul>
+        </div>
+        <a href="/cv/">CV</a>
+        <a href="mailto:aaron@a3di.dev">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a href="/" class="back-link">&larr; Home</a>
+
+    <div class="case-study-header">
+      <h1>Data Quality Screening at Scale</h1>
+      <p class="subtitle">Automated quality assessment across 1,000+ anthropometric surveys for UNICEF JME</p>
+
+      <div class="meta-bar">
+        <div class="meta-item">
+          <div class="label">Client</div>
+          <div class="value">UNICEF &mdash; Joint Malnutrition Estimates</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Sector</div>
+          <div class="value">Child nutrition &amp; anthropometric monitoring</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Scale</div>
+          <div class="value">1,091 surveys, 167 countries, 1980&ndash;2024</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Stack</div>
+          <div class="value">Python &rarr; R migration for Stata integration</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Duration</div>
+          <div class="value">Dec 2025&ndash;May 2026</div>
+        </div>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-number">1,091</span>
+          <span class="stat-label">Surveys screened</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">167</span>
+          <span class="stat-label">Countries</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">136</span>
+          <span class="stat-label">Quality indicators</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Scoring channels</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="case-study-section">
+      <h2>Challenge</h2>
+      <p>
+        The UNICEF/WHO/World Bank Joint Malnutrition Estimates (JME) maintain a global database
+        of anthropometric surveys used to track child nutrition outcomes worldwide. Before any
+        survey enters the published estimates, it must pass quality review &mdash; but with over
+        1,000 surveys in the database and new rounds arriving regularly, manual review doesn&rsquo;t
+        scale.
+      </p>
+      <p>
+        The existing process relied on ad-hoc checks and expert judgement, making it difficult
+        to maintain consistency across reviewers and across time. Surveys could have subtle data
+        quality issues &mdash; digit preference in measurements, age heaping, implausible z-score
+        distributions, or internally incoherent prevalence estimates &mdash; that are hard to catch
+        without systematic screening. The JME team needed an automated first-pass quality
+        assessment that could flag surveys for human review, with transparent evidence rather
+        than a black-box score.
+      </p>
+    </section>
+
+    <section class="case-study-section">
+      <h2>Approach</h2>
+      <p>
+        A3DI designed and built a multi-channel statistical screening pipeline that computes
+        136 quality indicators per survey across 10 dimensions, then scores each survey through
+        5 independent statistical channels. Each channel answers a different question about
+        data quality:
+      </p>
+
+      <div class="pipeline-diagram">Survey CSVs (1,091 files)
+    &darr;
+Indicator Pipeline (10 calculator classes &rarr; 136 indicators per survey)
+    &darr;
+5 Independent Scoring Channels:
+    A: PCA composite scoring      &mdash; Where does this survey rank globally?
+    B: Mahalanobis distance       &mdash; Unusual indicator combinations?
+    C: Mixed-effects residuals    &mdash; Unusual for its country?
+    E: Prevalence outlier         &mdash; Plausible prevalence estimates?
+    F: Prevalence coherence       &mdash; Do prevalences make sense together?
+    &darr;
+Tiered Review Priorities (Tier 1: 3+ channels &rarr; Tier 3: 1 channel)</div>
+
+      <p>
+        The indicator pipeline handles the full measurement quality surface: completeness,
+        sex ratio deviations, age heaping, digit preference in height and weight measurements,
+        WHO flag rates, z-score standard deviations, distribution shape (skewness, kurtosis),
+        whole-number heaping, age-specific quality differences between boys and girls, and
+        z-score tail behaviour.
+      </p>
+      <p>
+        Channels A&ndash;C assess <em>process</em> quality (how data was collected), while
+        Channels E&ndash;F assess <em>output</em> quality (whether the resulting prevalence
+        estimates are epidemiologically plausible). This separation matters: a survey can have
+        clean measurements but implausible prevalence due to sampling problems, or vice versa.
+      </p>
+      <p>
+        The mixed-effects models (Channels C and E) use hierarchical nesting by WHO &times;
+        World Bank region (17 groups) with random intercepts per country, so that single-survey
+        countries borrow strength from their region while countries with long survey histories
+        are evaluated against their own trajectory.
+      </p>
+      <p>
+        All fitted model parameters are persisted as Parquet files &mdash; language-agnostic and
+        readable by Python, R, and Stata &mdash; so that new surveys can be scored in seconds
+        against the existing reference distribution without refitting.
+      </p>
+    </section>
+
+    <section class="case-study-section">
+      <h2>Result</h2>
+      <p>
+        The system processes 1,091 surveys and assigns tiered review priorities: roughly 4%
+        are Tier 1 (flagged by 3+ channels, requiring full expert review), 9% are Tier 2
+        (2 channels), and 17% are Tier 3 (1 channel). The remaining 70% require no review.
+      </p>
+      <p>
+        Validation against 134 historically rejected surveys (excluded from model training
+        and scored out-of-sample) showed that 85% of rejected surveys were flagged by at
+        least one channel &mdash; 2.8&times; the baseline rate &mdash; and 50% were classified
+        as Tier 1, roughly 12&times; the baseline. The system captures real quality
+        differences, not noise.
+      </p>
+      <p>
+        The pipeline was built in Python as a proof-of-concept and is being migrated to R
+        for integration with the JME team&rsquo;s existing Stata-based production workflow.
+        The final deliverable is a single R script callable from Stata
+        (<code>Rscript score_survey.R &lt;csv_path&gt;</code>) that scores a new survey
+        in seconds against pre-fitted models &mdash; no Python dependency required on the
+        production server.
+      </p>
+    </section>
+
+    <div class="takeaway">
+      <h2>Key Takeaway</h2>
+      <p>
+        At the scale of global monitoring, manual data quality review doesn&rsquo;t scale.
+        But automated screening only earns trust when it produces structured evidence for
+        human reviewers, not binary accept/reject decisions. A multi-channel architecture &mdash; where
+        each method answers a different question &mdash; gives reviewers the diagnostic
+        decomposition they need to act on the flags.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>&copy; 2025 Aaron Wise</span>
+        <div class="footer-links">
+          <a href="mailto:aaron@a3di.dev">Email</a>
+          <a href="https://www.linkedin.com/in/aaronbwise/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/aaronbwise" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -3,37 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" />
-
-  <!-- Preload hero image -->
-  <link rel="preload" as="image" href="/img/showcase1.jpg" />
-
-  <link rel="icon" type="image/jpeg" href="/img/favicon.jpg" />
-
-  <!-- Open Graph / LinkedIn -->
+  <title>Aaron Wise | A3DI</title>
+  <meta name="description" content="Data pipelines, code migration, and applied statistics for international development organisations." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.a3di.dev/" />
+  <meta property="og:title" content="Aaron Wise | A3DI" />
+  <meta property="og:description" content="Data pipelines, code migration, and applied statistics for international development organisations." />
   <meta property="og:image" content="https://www.a3di.dev/og-image.png" />
-  <meta property="og:title" content="A3DI | Data & Evidence Consulting" />
-  <meta property="og:description" content="Helping humanitarian organisations turn data into decisions" />
-
-  <title>A3DI | Better results through data</title>
+  <link rel="icon" type="image/jpeg" href="/img/favicon.jpg" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <div id="root"></div>
 
-  <!-- Hidden form for Netlify post-processing (field names MUST match ContactModal.jsx) -->
-  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="first-name" />
-    <input type="text" name="last-name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
-  </form>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <a href="/" class="brand-name">Aaron Wise</a>
+        <span class="brand-sub">A3DI</span>
+      </div>
+      <nav>
+        <div class="nav-dropdown">
+          <a href="/#work" class="nav-dropdown-toggle">Case Studies</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="/case-studies/alive-and-thrive.html">Alive &amp; Thrive MCHN Equity</a></li>
+            <li><a href="/case-studies/unicef-dq-screener.html">UNICEF JME Data Quality</a></li>
+          </ul>
+        </div>
+        <a href="/cv/">CV</a>
+        <a href="mailto:aaron@a3di.dev">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <script type="module" src="/src/main.jsx"></script>
+  <main class="container">
+    <section id="intro" class="intro">
+      <h1>Data pipelines and statistical analysis systems for international development.</h1>
+      <p>
+        I build reproducible, configuration-driven pipelines that ingest, harmonise,
+        and analyse survey and administrative data. Python, R, Stata &mdash; whatever your
+        team already uses. I make existing workflows scalable, maintainable, and ready
+        for production.
+      </p>
+    </section>
+
+    <section id="services">
+      <h2>What I Do</h2>
+      <ul class="service-list">
+        <li class="service-item">
+          <h3>Data Pipelines</h3>
+          <p>
+            Config-driven, reproducible pipelines that ingest, transform, and harmonise
+            survey and administrative data across sources. Built to extend &mdash; not
+            to rebuild from scratch when the next round arrives.
+          </p>
+          <ul class="service-details">
+            <li>Raw SPSS, CSV, and Stata files to analysis-ready datasets</li>
+            <li>JSON/YAML configuration per country-year &mdash; same codebase, different surveys</li>
+            <li>Automated variable mapping, merging, and unique identifier creation</li>
+            <li>Used in: <a href="/case-studies/alive-and-thrive.html">A&amp;T equity analysis</a> (15+ survey rounds, 3 countries),
+              <a href="/case-studies/unicef-dq-screener.html">UNICEF JME screener</a> (1,091 surveys, 167 countries)</li>
+          </ul>
+        </li>
+        <li class="service-item">
+          <h3>Code Migration</h3>
+          <p>
+            Move legacy analysis from spreadsheets, SPSS, or ad-hoc scripts to
+            production-quality Python or R. Preserve your statistical logic, improve
+            everything around it.
+          </p>
+          <ul class="service-details">
+            <li>Version control, testing, and documentation from day one</li>
+            <li>Reproducible outputs &mdash; same inputs, same results, every time</li>
+            <li>Integration with existing workflows (Stata control tables, team processes)</li>
+            <li>Used in: <a href="/case-studies/unicef-dq-screener.html">UNICEF JME screener</a> &mdash; Python proof-of-concept migrating to R for Stata integration</li>
+          </ul>
+        </li>
+        <li class="service-item">
+          <h3>Applied Statistics</h3>
+          <p>
+            Methods your reviewers will trust, code your team can maintain. I handle
+            complex survey designs and disaggregated analysis across demographic and
+            geographic stratifiers.
+          </p>
+          <ul class="service-details">
+            <li>Weighted survey analysis accounting for complex sampling designs</li>
+            <li>Logistic regression, PCA, mixed-effects models, Mahalanobis outlier detection</li>
+            <li>Equity decompositions by wealth, region, ethnicity, and education</li>
+            <li>Used in: <a href="/case-studies/alive-and-thrive.html">A&amp;T equity analysis</a> &mdash; 20+ years of MCHN trends disaggregated by 5 stratifiers</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section id="work">
+      <h2>Case Studies</h2>
+      <div class="work-grid">
+        <div class="work-card">
+          <h3><a href="/case-studies/alive-and-thrive.html">Uncovering Who Is Furthest Behind</a></h3>
+          <p class="subtitle">Multi-country MCHN equity analysis for Alive &amp; Thrive</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Survey Analysis</span>
+            <span class="tag">Data Pipeline</span>
+          </div>
+        </div>
+        <div class="work-card">
+          <h3><a href="/case-studies/unicef-dq-screener.html">Data Quality Screening at Scale</a></h3>
+          <p class="subtitle">Automated quality checks across 1,000+ surveys for UNICEF JME</p>
+          <div class="tags">
+            <span class="tag">Stata &rarr; R</span>
+            <span class="tag">Pipeline</span>
+            <span class="tag">Data Quality</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>&copy; 2025 Aaron Wise</span>
+        <div class="footer-links">
+          <a href="mailto:aaron@a3di.dev">Email</a>
+          <a href="https://www.linkedin.com/in/aaronbwise/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/aaronbwise" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

@@ -3,12 +3,7 @@
   publish = "dist"
 
 [[redirects]]
-  from = "/case-studies/alive-and-thrive.html"
-  to = "/case-studies/alive-and-thrive"
+  from = "/case-studies/alive-and-thrive"
+  to = "/case-studies/alive-and-thrive.html"
   status = 301
   force = true
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200

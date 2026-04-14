@@ -1,75 +1,65 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## Project Overview
 
-Landing page for A3DI Consulting Firm (https://www.a3di.dev/), built with Vite + React 19 + Tailwind CSS 4. Recently migrated from static HTML/Bootstrap to a React SPA.
+Personal website for Aaron Wise / A3DI (https://www.a3di.dev/). Multi-page static HTML + CSS, built with Vite as a bundler. No JavaScript frameworks or dependencies — just Vite for dev server and production builds.
 
 ## Commands
 
 - **Dev server:** `npm run dev`
 - **Production build:** `npm run build` (outputs to `dist/`)
 - **Preview build:** `npm run preview`
-- **Lint:** `npm run lint`
 
-No test framework is configured.
+No test framework or linter is configured.
 
 ## Architecture
 
-### Routing (src/App.jsx)
+Multi-page static site (Vite MPA mode). Each page is a standalone HTML file sharing `style.css`:
 
-React Router with a `<Layout>` wrapper providing navbar and footer on all pages:
-- `/` — HomePage (hero, services, case studies sections)
-- `/case-studies/:slug` — CaseStudyDetailPage (dynamic, slug-based)
+- `index.html` — Homepage (intro, services with bullet details, case study cards)
+- `cv/index.html` — Full CV (experience, education, skills, publications)
+- `case-studies/alive-and-thrive.html` — A&T multi-country MCHN equity analysis
+- `case-studies/unicef-dq-screener.html` — UNICEF JME data quality screening pipeline
 
-In-page navigation uses hash-based smooth scrolling (`#services`, `#case-studies`). A `ScrollToTop` component resets scroll on route changes.
+Vite config (`vite.config.js`) lists all pages as rollup inputs. To add a page: create the HTML file, add it to `rollupOptions.input`, and link to it from the nav dropdown.
 
-### Content Data Layer (src/content/)
+### Navigation
 
-Content is separated from components:
-- `metadata.js` — SEO/OG meta tags
-- `services.js` — Service card data (4 services)
-- `caseStudies.js` — Case study metadata and slug routing
-- `case-studies/*.jsx` — Full case study content as JSX components
-
-To add a new case study: create a JSX file in `src/content/case-studies/`, add its entry to `caseStudies.js` with a slug, and it will auto-route.
-
-### Component Organization (src/components/)
-
-- `layout/` — Layout, Navbar, Footer (structural wrappers)
-- `sections/` — Page sections (HeroSection, ServicesSection, CaseStudiesSection)
-- `case-study/` — Case study detail components (MermaidDiagram, CodeBlock, TakeawayBox, MetaBar)
-- `shared/` — Reusable UI (ContactModal, CookieConsent, Badge, ServiceCard, CaseStudyCard, SectionHeading, SocialLinks)
-
-### Icons (src/icons/)
-
-SVG components accepting `className` prop. Mapped by string key in ServiceCard via an icon lookup object.
+All pages share a header with a CSS-only dropdown menu under "Case Studies" (hover/focus to open, no JS). The dropdown links to both case study pages. Nav, header, and footer markup is duplicated across all HTML files — update all four when changing navigation.
 
 ## Styling
 
-Tailwind CSS 4 configured via `@tailwindcss/vite` plugin. Custom theme defined in `src/index.css` using `@theme`:
+Single `style.css` file shared across all pages. System font stack (no web fonts).
 
-- `--color-primary: #3075ff` (blue)
-- `--color-secondary: #0d1d3f` (dark blue)
-- `--color-dark: #002240`
-- `--color-light: #f4f4f4`
-- `--font-sans: "Montserrat"`
+### Design tokens (CSS custom properties)
 
-Responsive design uses Tailwind's `max-md:` prefix (768px breakpoint) and `clamp()` for fluid typography.
+- `--bg`, `--text`, `--accent`, `--dark` — core palette
+- `--text-muted`, `--text-subtle`, `--text-faint`, `--text-label`, `--text-placeholder` — semantic gray scale
+- `--code-bg`, `--tag-bg` — surface colors (currently same value, independently adjustable)
+- `--border`, `--max-width` — layout
+
+### Typography conventions (enforced across all HTML files)
+
+- Em-dashes: spaced (` &mdash; `) for parenthetical breaks in prose
+- En-dashes: unspaced (`&ndash;`) for numeric ranges (years, pages)
+- British spelling: harmonise, analyse, optimise, programme, organisation
+- Curly apostrophes: `&rsquo;` in prose (straight quotes in attributes/code only)
+- Exception: publication titles are proper nouns — preserve original punctuation
+
+Responsive breakpoint at `768px`. The narrow max-width (740px) means most layouts work at mobile widths with minimal changes.
 
 ## Deployment
 
 Hosted on **Netlify** (config in `netlify.toml`):
 - Build: `npm run build`, publish: `dist/`
-- SPA fallback: `/* → /index.html` (status 200)
-- 301 redirects for legacy static HTML URLs
-- Contact form via Netlify Forms (hidden form in `index.html` + URLSearchParams POST in ContactModal)
+- 301 redirect from `/case-studies/alive-and-thrive` (no extension) to `.html`
+- No SPA fallback needed — real HTML files for each route
 
-## Key Integration Details
+## npm on Google Drive
 
-- **Contact Modal:** Uses Radix UI Dialog. Form POSTs to Netlify Forms; the hidden form in `index.html` must match field names.
-- **Google Analytics:** Loaded conditionally via `src/utils/analytics.js` after GDPR cookie consent.
-- **Mermaid Diagrams:** Used in case studies. Custom theme colors matching brand. Handles React StrictMode duplicate-render via render counter.
-- **React Helmet Async:** Manages `<head>` tags per page. App wrapped in `<HelmetProvider>`.
-- **`.npmrc`:** Sets `legacy-peer-deps=true` for react-helmet-async compatibility with React 19.
+This project lives on Google Drive (`G:\My Drive\...`). npm install fails on the virtual filesystem. Workaround: install in a local temp directory, then copy `node_modules` back:
+
+```bash
+mkdir -p /tmp/a3di-install && cp package.json /tmp/a3di-install/ && cd /tmp/a3di-install && npm install
+cp -r /tmp/a3di-install/node_modules /tmp/a3di-install/package-lock.json .
+```

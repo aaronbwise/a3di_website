@@ -1,7 +1,15 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { resolve } from 'path'
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        cv: resolve(__dirname, 'cv/index.html'),
+        aliveAndThrive: resolve(__dirname, 'case-studies/alive-and-thrive.html'),
+        unicefDq: resolve(__dirname, 'case-studies/unicef-dq-screener.html'),
+      },
+    },
+  },
 })
