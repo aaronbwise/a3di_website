@@ -40,7 +40,7 @@
       <div class="meta-bar">
         <div class="meta-item">
           <div class="label">Client</div>
-          <div class="value">UNICEF &mdash; Joint Malnutrition Estimates</div>
+          <div class="value">UNICEF / Joint Malnutrition Estimates</div>
         </div>
         <div class="meta-item">
           <div class="label">Sector</div>
@@ -85,15 +85,15 @@
       <p>
         The UNICEF/WHO/World Bank Joint Malnutrition Estimates (JME) maintain a global database
         of anthropometric surveys used to track child nutrition outcomes worldwide. Before any
-        survey enters the published estimates, it must pass quality review &mdash; but with over
-        1,000 surveys in the database and new rounds arriving regularly, manual review doesn&rsquo;t
-        scale.
+        survey enters the published estimates, it must pass quality review. But with over
+        1,000 surveys in the database and new rounds arriving regularly, manual review
+        doesn&rsquo;t scale.
       </p>
       <p>
         The existing process relied on ad-hoc checks and expert judgement, making it difficult
         to maintain consistency across reviewers and across time. Surveys could have subtle data
-        quality issues &mdash; digit preference in measurements, age heaping, implausible z-score
-        distributions, or internally incoherent prevalence estimates &mdash; that are hard to catch
+        quality issues (digit preference in measurements, age heaping, implausible z-score
+        distributions, or internally incoherent prevalence estimates) that are hard to catch
         without systematic screening. The JME team needed an automated first-pass quality
         assessment that could flag surveys for human review, with transparent evidence rather
         than a black-box score.
@@ -114,11 +114,11 @@
 Indicator Pipeline (10 calculator classes &rarr; 136 indicators per survey)
     &darr;
 5 Independent Scoring Channels:
-    A: PCA composite scoring      &mdash; Where does this survey rank globally?
-    B: Mahalanobis distance       &mdash; Unusual indicator combinations?
-    C: Mixed-effects residuals    &mdash; Unusual for its country?
-    E: Prevalence outlier         &mdash; Plausible prevalence estimates?
-    F: Prevalence coherence       &mdash; Do prevalences make sense together?
+    A: PCA composite scoring       (Where does this survey rank globally?)
+    B: Mahalanobis distance        (Unusual indicator combinations?)
+    C: Mixed-effects residuals     (Unusual for its country?)
+    E: Prevalence outlier          (Plausible prevalence estimates?)
+    F: Prevalence coherence        (Do prevalences make sense together?)
     &darr;
 Tiered Review Priorities (Tier 1: 3+ channels &rarr; Tier 3: 1 channel)</div>
 
@@ -142,8 +142,8 @@ Tiered Review Priorities (Tier 1: 3+ channels &rarr; Tier 3: 1 channel)</div>
         are evaluated against their own trajectory.
       </p>
       <p>
-        All fitted model parameters are persisted as Parquet files &mdash; language-agnostic and
-        readable by Python, R, and Stata &mdash; so that new surveys can be scored in seconds
+        All fitted model parameters are persisted as Parquet files, which are language-agnostic
+        and readable by Python, R, and Stata. New surveys can be scored in seconds
         against the existing reference distribution without refitting.
       </p>
     </section>
@@ -158,7 +158,7 @@ Tiered Review Priorities (Tier 1: 3+ channels &rarr; Tier 3: 1 channel)</div>
       <p>
         Validation against 134 historically rejected surveys (excluded from model training
         and scored out-of-sample) showed that 85% of rejected surveys were flagged by at
-        least one channel &mdash; 2.8&times; the baseline rate &mdash; and 50% were classified
+        least one channel (2.8&times; the baseline rate), and 50% were classified
         as Tier 1, roughly 12&times; the baseline. The system captures real quality
         differences, not noise.
       </p>
@@ -167,7 +167,7 @@ Tiered Review Priorities (Tier 1: 3+ channels &rarr; Tier 3: 1 channel)</div>
         for integration with the JME team&rsquo;s existing Stata-based production workflow.
         The final deliverable is a single R script callable from Stata
         (<code>Rscript score_survey.R &lt;csv_path&gt;</code>) that scores a new survey
-        in seconds against pre-fitted models &mdash; no Python dependency required on the
+        in seconds against pre-fitted models, with no Python dependency required on the
         production server.
       </p>
     </section>
@@ -177,8 +177,8 @@ Tiered Review Priorities (Tier 1: 3+ channels &rarr; Tier 3: 1 channel)</div>
       <p>
         At the scale of global monitoring, manual data quality review doesn&rsquo;t scale.
         But automated screening only earns trust when it produces structured evidence for
-        human reviewers, not binary accept/reject decisions. A multi-channel architecture &mdash; where
-        each method answers a different question &mdash; gives reviewers the diagnostic
+        human reviewers, not binary accept/reject decisions. A multi-channel architecture
+        in which each method answers a different question gives reviewers the diagnostic
         decomposition they need to act on the flags.
       </p>
     </div>
