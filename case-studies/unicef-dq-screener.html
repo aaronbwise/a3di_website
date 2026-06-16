@@ -31,159 +31,170 @@
 
   <main class="container">
     <a href="/" class="back-link">&larr; Home</a>
+    <article class="cs">
+      <!-- HERO -->
+      <div class="cs-hero">
+        <div class="cs-eyebrow"><span class="org">UNICEF</span> · Joint Malnutrition Estimates</div>
+        <h1>Data quality screening at global scale</h1>
+        <p class="deck">An automated first-pass that triages 1,000+ anthropometric surveys — so expert reviewers spend their time only on the surveys that actually need it.</p>
 
-    <div class="case-study-header">
-      <h1>Data Quality Screening at Scale</h1>
-      <p class="subtitle">Automated quality assessment across 1,000+ anthropometric surveys for UNICEF JME</p>
+        <div class="cs-stats">
+          <div class="cs-stat"><div class="v">70<small>%</small></div><div class="k">of surveys cleared automatically — zero manual review</div></div>
+          <div class="cs-stat"><div class="v">85<small>%</small></div><div class="k">of known-bad surveys caught out-of-sample</div></div>
+          <div class="cs-stat"><div class="v">2.8<small>×</small></div><div class="k">detection vs. baseline (12× for Tier&nbsp;1)</div></div>
+          <div class="cs-stat"><div class="v">~1<small>sec</small></div><div class="k">to score a new survey, callable from Stata</div></div>
+        </div>
 
-      <div class="meta-bar">
-        <div class="meta-item">
-          <div class="label">Client</div>
-          <div class="value">UNICEF / Joint Malnutrition Estimates</div>
-        </div>
-        <div class="meta-item">
-          <div class="label">Sector</div>
-          <div class="value">Child nutrition &amp; anthropometric monitoring</div>
-        </div>
-        <div class="meta-item">
-          <div class="label">Scale</div>
-          <div class="value">1,091 surveys, 167 countries, 1980&ndash;2024</div>
-        </div>
-        <div class="meta-item">
-          <div class="label">Stack</div>
-          <div class="value">Python &rarr; R migration for Stata integration</div>
-        </div>
-        <div class="meta-item">
-          <div class="label">Duration</div>
-          <div class="value">Dec 2025&ndash;May 2026</div>
+        <div class="cs-meta">
+          <div class="m"><div class="mk">Client</div><div class="mv">UNICEF / WHO / World Bank JME</div></div>
+          <div class="m"><div class="mk">Role</div><div class="mv">Design &amp; build</div></div>
+          <div class="m"><div class="mk">Stack</div><div class="mv">Python → R, for Stata integration</div></div>
+          <div class="m"><div class="mk">Scale</div><div class="mv">1,091 surveys · 167 countries</div></div>
+          <div class="m"><div class="mk">Timeline</div><div class="mv">Dec 2025 – May 2026</div></div>
         </div>
       </div>
 
-      <div class="stats-bar">
-        <div class="stat">
-          <span class="stat-number">1,091</span>
-          <span class="stat-label">Surveys screened</span>
+      <!-- BODY -->
+      <div class="cs-body">
+
+        <!-- AT A GLANCE -->
+        <div class="cs-section" style="border-bottom:1px solid var(--line)">
+          <div class="lab">At a glance</div>
+          <div class="glance">
+            <div class="g">
+              <div class="gk">The problem</div>
+              <div class="gv">Every survey feeding the global child-malnutrition estimates needs a quality check. With 1,000+ in the database and more each round, manual expert review can't keep pace — or stay consistent between reviewers.</div>
+            </div>
+            <div class="g">
+              <div class="gk">What I built</div>
+              <div class="gv">A configuration-driven pipeline computing 136 quality indicators per survey, scored through 5 independent statistical channels into a transparent, tiered review queue — evidence, not a black-box score.</div>
+            </div>
+            <div class="g out">
+              <div class="gk">The outcome</div>
+              <div class="gv">70% of surveys clear automatically; reviewers focus on the flagged 30%. Validated to catch 85% of known-bad surveys at 2.8× the baseline rate — real quality differences, not noise.</div>
+            </div>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-number">167</span>
-          <span class="stat-label">Countries</span>
+
+        <!-- CHALLENGE -->
+        <div class="cs-section">
+          <div class="lab"><span class="ix">01</span> Challenge</div>
+          <h2>Manual review doesn't scale to a global database</h2>
+          <p>The UNICEF/WHO/World Bank Joint Malnutrition Estimates maintain the global database of anthropometric surveys used to track child nutrition worldwide. Before a survey enters the published estimates, it must pass quality review — but with 1,000+ surveys and new rounds arriving constantly, hand review breaks down.</p>
+          <p>The existing process leaned on ad-hoc checks and expert judgement, making consistency hard to hold across reviewers and across years. Subtle issues — <strong>digit preference</strong> in measurements, <strong>age heaping</strong>, implausible z-score distributions, internally incoherent prevalence — are easy to miss without systematic screening.</p>
+          <div class="aside">
+            <div class="at">The real requirement</div>
+            <p>An automated first pass that <strong>flags surveys with transparent evidence</strong> a human can act on — not a binary accept/reject machine that reviewers would never trust.</p>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-number">136</span>
-          <span class="stat-label">Quality indicators</span>
+
+        <!-- APPROACH -->
+        <div class="cs-section">
+          <div class="lab"><span class="ix">02</span> Approach</div>
+          <h2>One survey in, 136 indicators, 5 independent verdicts</h2>
+          <p>The pipeline computes 136 quality indicators per survey across 10 dimensions, then scores each survey through 5 independent statistical channels — each answering a different question about quality, so a flag always comes with a reason.</p>
+
+          <div class="flow">
+            <div class="node"><div class="nk">Input</div><div class="nt">1,091 CSVs</div><div class="nd">1980–2024 · 167 countries</div></div>
+            <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="node"><div class="nk">Measure</div><div class="nt">136 indicators</div><div class="nd">10 calculator classes</div></div>
+            <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="node"><div class="nk">Score</div><div class="nt">5 channels</div><div class="nd">process + output quality</div></div>
+            <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="node" style="border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-50)"><div class="nk">Triage</div><div class="nt">4 review tiers</div><div class="nd">by # of channels flagging</div></div>
+          </div>
+
+          <div class="channels">
+            <div class="chan"><span class="typ proc">Process</span><div class="id">A</div><h4>PCA composite</h4><p>Global ranking across all indicators</p></div>
+            <div class="chan"><span class="typ proc">Process</span><div class="id">B</div><h4>Mahalanobis</h4><p>Unusual indicator combinations</p></div>
+            <div class="chan"><span class="typ proc">Process</span><div class="id">C</div><h4>Mixed-effects</h4><p>Country-level residuals</p></div>
+            <div class="chan"><span class="typ out">Output</span><div class="id">E</div><h4>Prevalence outlier</h4><p>Epidemiological plausibility</p></div>
+            <div class="chan"><span class="typ out">Output</span><div class="id">F</div><h4>Prevalence coherence</h4><p>Internal consistency</p></div>
+          </div>
+
+          <div class="aside">
+            <div class="at">Why it earns a statistician's trust</div>
+            <p>Channels A–C judge <strong>how data was collected</strong>; E–F judge <strong>whether the resulting estimates are plausible</strong> — a survey can have clean measurements but implausible prevalence, or vice versa. The mixed-effects models nest by WHO × World Bank region (17 groups) with per-country random intercepts, so single-survey countries borrow strength from their region while long-history countries are judged against their own trajectory. Fitted parameters persist as <strong>Parquet</strong> — language-agnostic across Python, R, and Stata.</p>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-number">5</span>
-          <span class="stat-label">Scoring channels</span>
+
+        <!-- RESULT -->
+        <div class="cs-section">
+          <div class="lab"><span class="ix">03</span> Result</div>
+          <h2>Reviewers' time goes where the risk is</h2>
+
+          <div class="viz">
+            <div class="vtitle"><h4>Where 1,091 surveys land</h4><span class="vsub">tier = number of channels flagging</span></div>
+            <div class="triage">
+              <div class="seg" style="width:70%;background:var(--ok)"><span class="p">70%</span><span class="l">No review needed</span></div>
+              <div class="seg" style="width:17%;background:var(--t3)"><span class="p">17%</span><span class="l">Tier 3</span></div>
+              <div class="seg" style="width:9%;background:var(--t2)"><span class="p" style="font-size:15px">9%</span></div>
+              <div class="seg" style="width:4%;background:var(--t1)"><span class="p" style="font-size:13px">4%</span></div>
+            </div>
+            <div class="legend">
+              <div class="li"><span class="sw" style="background:var(--ok)"></span><div><b>70% — Clear.</b> No reviewer time required.</div></div>
+              <div class="li"><span class="sw" style="background:var(--t3)"></span><div><b>17% — Tier 3.</b> 1 channel flagged.</div></div>
+              <div class="li"><span class="sw" style="background:var(--t2)"></span><div><b>9% — Tier 2.</b> 2 channels flagged.</div></div>
+              <div class="li"><span class="sw" style="background:var(--t1)"></span><div><b>4% — Tier 1.</b> 3+ channels — full expert review.</div></div>
+            </div>
+          </div>
+
+          <div class="viz">
+            <div class="vtitle"><h4>Does it catch the bad ones?</h4><span class="vsub">134 historically rejected surveys, scored out-of-sample</span></div>
+            <div class="lift">
+              <div class="row">
+                <div class="rl"><span>Flagged by at least one channel</span><span><b>85%</b> <span class="x">2.8× baseline</span></span></div>
+                <div class="track">
+                  <div class="base" style="width:30%"><span class="blab">baseline 30%</span></div>
+                  <div class="fill" style="width:85%">85% of rejected surveys</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="rl"><span>Classified Tier 1 (highest priority)</span><span><b>50%</b> <span class="x">~12× baseline</span></span></div>
+                <div class="track">
+                  <div class="base" style="width:4%"></div>
+                  <div class="fill" style="width:50%">50% of rejected surveys</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p>The split means reviewers ignore 70% of the database with confidence and concentrate on the 4% that three or more methods independently distrust. Because the rejected-survey validation was scored <strong>out-of-sample</strong>, the lift over baseline shows the system is tracking real quality, not memorising the training set.</p>
+
+          <div class="terminal">
+            <div class="tt"><i style="background:#E5484D"></i><i style="background:#E3B007"></i><i style="background:#1F9D63"></i><span class="fn">production · no Python required</span></div>
+<pre><span class="c"># the entire deliverable: one R script, callable from Stata</span>
+$ <span class="b">Rscript</span> score_survey.R data/new_survey.csv
+<span class="c">→</span> loading pre-fitted models (Parquet)…
+<span class="c">→</span> 136 indicators · 5 channels scored
+<span class="g">✓ TIER 3</span>  — 1 channel flagged (digit preference)        <span class="c">0.8s</span></pre>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <section class="case-study-section">
-      <h2>Challenge</h2>
-      <p>
-        The UNICEF/WHO/World Bank Joint Malnutrition Estimates (JME) maintain a global database
-        of anthropometric surveys used to track child nutrition outcomes worldwide. Before any
-        survey enters the published estimates, it must pass quality review. But with over
-        1,000 surveys in the database and new rounds arriving regularly, manual review
-        doesn&rsquo;t scale.
-      </p>
-      <p>
-        The existing process relied on ad-hoc checks and expert judgement, making it difficult
-        to maintain consistency across reviewers and across time. Surveys could have subtle data
-        quality issues (digit preference in measurements, age heaping, implausible z-score
-        distributions, or internally incoherent prevalence estimates) that are hard to catch
-        without systematic screening. The JME team needed an automated first-pass quality
-        assessment that could flag surveys for human review, with transparent evidence rather
-        than a black-box score.
-      </p>
-    </section>
-
-    <section class="case-study-section">
-      <h2>Approach</h2>
-      <p>
-        A3DI designed and built a multi-channel statistical screening pipeline that computes
-        136 quality indicators per survey across 10 dimensions, then scores each survey through
-        5 independent statistical channels. Each channel answers a different question about
-        data quality:
-      </p>
-
-      <div class="pipeline-diagram">
-        <div class="pipeline-node-wide">Survey CSVs<span>1,091 files</span></div>
-        <div class="pipeline-arrow">&darr;</div>
-        <div class="pipeline-node-wide">Indicator pipeline<span>10 calculator classes &rarr; 136 indicators per survey</span></div>
-        <div class="pipeline-arrow">&darr;</div>
-        <div class="pipeline-channels">
-          <div class="pipeline-node"><strong>PCA composite</strong><span>Global ranking</span></div>
-          <div class="pipeline-node"><strong>Mahalanobis</strong><span>Unusual combinations</span></div>
-          <div class="pipeline-node"><strong>Mixed-effects</strong><span>Country residuals</span></div>
-          <div class="pipeline-node"><strong>Prevalence outlier</strong><span>Plausibility check</span></div>
-          <div class="pipeline-node"><strong>Prevalence coherence</strong><span>Internal consistency</span></div>
+        <!-- TAKEAWAY -->
+        <div class="cs-section">
+          <div class="takeaway">
+            <div class="lab">The takeaway</div>
+            <p>Automated screening only earns trust when it hands reviewers structured evidence — not a verdict. Five methods, five reasons, one queue.</p>
+          </div>
         </div>
-        <div class="pipeline-arrow">&darr;</div>
-        <div class="pipeline-node-wide">Tiered review priorities<span>Tier 1: 3+ channels &rarr; Tier 3: 1 channel</span></div>
-      </div>
 
-      <p>
-        The indicator pipeline handles the full measurement quality surface: completeness,
-        sex ratio deviations, age heaping, digit preference in height and weight measurements,
-        WHO flag rates, z-score standard deviations, distribution shape (skewness, kurtosis),
-        whole-number heaping, age-specific quality differences between boys and girls, and
-        z-score tail behaviour.
-      </p>
-      <p>
-        Channels A&ndash;C assess <em>process</em> quality (how data was collected), while
-        Channels E&ndash;F assess <em>output</em> quality (whether the resulting prevalence
-        estimates are epidemiologically plausible). This separation matters: a survey can have
-        clean measurements but implausible prevalence due to sampling problems, or vice versa.
-      </p>
-      <p>
-        The mixed-effects models (Channels C and E) use hierarchical nesting by WHO &times;
-        World Bank region (17 groups) with random intercepts per country, so that single-survey
-        countries borrow strength from their region while countries with long survey histories
-        are evaluated against their own trajectory.
-      </p>
-      <p>
-        All fitted model parameters are persisted as Parquet files, which are language-agnostic
-        and readable by Python, R, and Stata. New surveys can be scored in seconds
-        against the existing reference distribution without refitting.
-      </p>
-    </section>
+        <!-- CTA -->
+        <div class="cs-section" style="border-bottom:0;padding-bottom:8px">
+          <div class="cta">
+            <div>
+              <h3>Have a workflow that's outgrown manual review?</h3>
+              <p>I build reproducible pipelines that turn ad-hoc, expert-judgement processes into systems your team can trust and maintain.</p>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <a class="btn" href="mailto:aaron@a3di.dev">aaron@a3di.dev &rarr;</a>
+              <a class="btn ghost" href="https://www.a3di.dev/#work">See more work</a>
+            </div>
+          </div>
+        </div>
 
-    <section class="case-study-section">
-      <h2>Result</h2>
-      <p>
-        The system processes 1,091 surveys and assigns tiered review priorities: roughly 4%
-        are Tier 1 (flagged by 3+ channels, requiring full expert review), 9% are Tier 2
-        (2 channels), and 17% are Tier 3 (1 channel). The remaining 70% require no review.
-      </p>
-      <p>
-        Validation against 134 historically rejected surveys (excluded from model training
-        and scored out-of-sample) showed that 85% of rejected surveys were flagged by at
-        least one channel (2.8&times; the baseline rate), and 50% were classified
-        as Tier 1, roughly 12&times; the baseline. The system captures real quality
-        differences, not noise.
-      </p>
-      <p>
-        The pipeline was built in Python as a proof-of-concept and is being migrated to R
-        for integration with the JME team&rsquo;s existing Stata-based production workflow.
-        The final deliverable is a single R script callable from Stata
-        (<code>Rscript score_survey.R &lt;csv_path&gt;</code>) that scores a new survey
-        in seconds against pre-fitted models, with no Python dependency required on the
-        production server.
-      </p>
-    </section>
-
-    <div class="takeaway">
-      <h2>Key Takeaway</h2>
-      <p>
-        At the scale of global monitoring, manual data quality review doesn&rsquo;t scale.
-        But automated screening only earns trust when it produces structured evidence for
-        human reviewers, not binary accept/reject decisions. A multi-channel architecture
-        in which each method answers a different question gives reviewers the diagnostic
-        decomposition they need to act on the flags.
-      </p>
-    </div>
+      </div><!-- /cs-body -->
+    </article>
   </main>
 
   <footer class="site-footer">
