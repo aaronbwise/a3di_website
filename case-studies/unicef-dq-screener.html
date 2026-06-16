@@ -36,12 +36,12 @@
       <div class="cs-hero">
         <div class="cs-eyebrow"><span class="org">UNICEF</span> · Joint Malnutrition Estimates</div>
         <h1>Data quality screening at global scale</h1>
-        <p class="deck">An automated first-pass that triages 1,000+ anthropometric surveys — so expert reviewers spend their time only on the surveys that actually need it.</p>
+        <p class="deck">An automated first-pass that triages 1,000+ anthropometric surveys &mdash; so expert reviewers spend their time only on the surveys that actually need it.</p>
 
         <div class="cs-stats">
-          <div class="cs-stat"><div class="v">70<small>%</small></div><div class="k">of surveys cleared automatically — zero manual review</div></div>
+          <div class="cs-stat"><div class="v">70<small>%</small></div><div class="k">of surveys cleared automatically &mdash; zero manual review</div></div>
           <div class="cs-stat"><div class="v">85<small>%</small></div><div class="k">of known-bad surveys caught out-of-sample</div></div>
-          <div class="cs-stat"><div class="v">2.8<small>×</small></div><div class="k">detection vs. baseline (12× for Tier&nbsp;1)</div></div>
+          <div class="cs-stat"><div class="v">2.8<small>&times;</small></div><div class="k">detection vs. baseline (12&times; for Tier&nbsp;1)</div></div>
           <div class="cs-stat"><div class="v">~1<small>sec</small></div><div class="k">to score a new survey, callable from Stata</div></div>
         </div>
 
@@ -50,7 +50,7 @@
           <div class="m"><div class="mk">Role</div><div class="mv">Design &amp; build</div></div>
           <div class="m"><div class="mk">Stack</div><div class="mv">Python → R, for Stata integration</div></div>
           <div class="m"><div class="mk">Scale</div><div class="mv">1,091 surveys · 167 countries</div></div>
-          <div class="m"><div class="mk">Timeline</div><div class="mv">Dec 2025 – May 2026</div></div>
+          <div class="m"><div class="mk">Timeline</div><div class="mv">Dec 2025&ndash;May 2026</div></div>
         </div>
       </div>
 
@@ -63,15 +63,15 @@
           <div class="glance">
             <div class="g">
               <div class="gk">The problem</div>
-              <div class="gv">Every survey feeding the global child-malnutrition estimates needs a quality check. With 1,000+ in the database and more each round, manual expert review can't keep pace — or stay consistent between reviewers.</div>
+              <div class="gv">Every survey feeding the global child-malnutrition estimates needs a quality check. With 1,000+ in the database and more each round, manual expert review can&rsquo;t keep pace &mdash; or stay consistent between reviewers.</div>
             </div>
             <div class="g">
               <div class="gk">What I built</div>
-              <div class="gv">A configuration-driven pipeline computing 136 quality indicators per survey, scored through 5 independent statistical channels into a transparent, tiered review queue — evidence, not a black-box score.</div>
+              <div class="gv">A configuration-driven pipeline computing 136 quality indicators per survey, scored through 5 independent statistical channels into a transparent, tiered review queue &mdash; evidence, not a black-box score.</div>
             </div>
             <div class="g out">
               <div class="gk">The outcome</div>
-              <div class="gv">70% of surveys clear automatically; reviewers focus on the flagged 30%. Validated to catch 85% of known-bad surveys at 2.8× the baseline rate — real quality differences, not noise.</div>
+              <div class="gv">70% of surveys clear automatically; reviewers focus on the flagged 30%. Validated to catch 85% of known-bad surveys at 2.8&times; the baseline rate &mdash; real quality differences, not noise.</div>
             </div>
           </div>
         </div>
@@ -79,12 +79,12 @@
         <!-- CHALLENGE -->
         <div class="cs-section">
           <div class="lab"><span class="ix">01</span> Challenge</div>
-          <h2>Manual review doesn't scale to a global database</h2>
-          <p>The UNICEF/WHO/World Bank Joint Malnutrition Estimates maintain the global database of anthropometric surveys used to track child nutrition worldwide. Before a survey enters the published estimates, it must pass quality review — but with 1,000+ surveys and new rounds arriving constantly, hand review breaks down.</p>
-          <p>The existing process leaned on ad-hoc checks and expert judgement, making consistency hard to hold across reviewers and across years. Subtle issues — <strong>digit preference</strong> in measurements, <strong>age heaping</strong>, implausible z-score distributions, internally incoherent prevalence — are easy to miss without systematic screening.</p>
+          <h2>Manual review doesn&rsquo;t scale to a global database</h2>
+          <p>The UNICEF/WHO/World Bank Joint Malnutrition Estimates maintain the global database of anthropometric surveys used to track child nutrition worldwide. Before a survey enters the published estimates, it must pass quality review &mdash; but with 1,000+ surveys and new rounds arriving constantly, hand review breaks down.</p>
+          <p>The existing process leaned on ad-hoc checks and expert judgement, making consistency hard to hold across reviewers and across years. Subtle issues &mdash; <strong>digit preference</strong> in measurements, <strong>age heaping</strong>, implausible z-score distributions, internally incoherent prevalence &mdash; are easy to miss without systematic screening.</p>
           <div class="aside">
             <div class="at">The real requirement</div>
-            <p>An automated first pass that <strong>flags surveys with transparent evidence</strong> a human can act on — not a binary accept/reject machine that reviewers would never trust.</p>
+            <p>An automated first pass that <strong>flags surveys with transparent evidence</strong> a human can act on &mdash; not a binary accept/reject machine that reviewers would never trust.</p>
           </div>
         </div>
 
@@ -92,10 +92,10 @@
         <div class="cs-section">
           <div class="lab"><span class="ix">02</span> Approach</div>
           <h2>One survey in, 136 indicators, 5 independent verdicts</h2>
-          <p>The pipeline computes 136 quality indicators per survey across 10 dimensions, then scores each survey through 5 independent statistical channels — each answering a different question about quality, so a flag always comes with a reason.</p>
+          <p>The pipeline computes 136 quality indicators per survey across 10 dimensions, then scores each survey through 5 independent statistical channels &mdash; each answering a different question about quality, so a flag always comes with a reason.</p>
 
           <div class="flow">
-            <div class="node"><div class="nk">Input</div><div class="nt">1,091 CSVs</div><div class="nd">1980–2024 · 167 countries</div></div>
+            <div class="node"><div class="nk">Input</div><div class="nt">1,091 CSVs</div><div class="nd">1980&ndash;2024 · 167 countries</div></div>
             <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
             <div class="node"><div class="nk">Measure</div><div class="nt">136 indicators</div><div class="nd">10 calculator classes</div></div>
             <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
@@ -113,15 +113,15 @@
           </div>
 
           <div class="aside">
-            <div class="at">Why it earns a statistician's trust</div>
-            <p>Channels A–C judge <strong>how data was collected</strong>; E–F judge <strong>whether the resulting estimates are plausible</strong> — a survey can have clean measurements but implausible prevalence, or vice versa. The mixed-effects models nest by WHO × World Bank region (17 groups) with per-country random intercepts, so single-survey countries borrow strength from their region while long-history countries are judged against their own trajectory. Fitted parameters persist as <strong>Parquet</strong> — language-agnostic across Python, R, and Stata.</p>
+            <div class="at">Why it earns a statistician&rsquo;s trust</div>
+            <p>Channels A&ndash;C judge <strong>how data was collected</strong>; E&ndash;F judge <strong>whether the resulting estimates are plausible</strong> &mdash; a survey can have clean measurements but implausible prevalence, or vice versa. The mixed-effects models nest by WHO &times; World Bank region (17 groups) with per-country random intercepts, so single-survey countries borrow strength from their region while long-history countries are judged against their own trajectory. Fitted parameters persist as <strong>Parquet</strong> &mdash; language-agnostic across Python, R, and Stata.</p>
           </div>
         </div>
 
         <!-- RESULT -->
         <div class="cs-section">
           <div class="lab"><span class="ix">03</span> Result</div>
-          <h2>Reviewers' time goes where the risk is</h2>
+          <h2>Reviewers&rsquo; time goes where the risk is</h2>
 
           <div class="viz">
             <div class="vtitle"><h4>Where 1,091 surveys land</h4><span class="vsub">tier = number of channels flagging</span></div>
@@ -132,10 +132,10 @@
               <div class="seg" style="width:4%;background:var(--t1)"><span class="p" style="font-size:13px">4%</span></div>
             </div>
             <div class="legend">
-              <div class="li"><span class="sw" style="background:var(--ok)"></span><div><b>70% — Clear.</b> No reviewer time required.</div></div>
-              <div class="li"><span class="sw" style="background:var(--t3)"></span><div><b>17% — Tier 3.</b> 1 channel flagged.</div></div>
-              <div class="li"><span class="sw" style="background:var(--t2)"></span><div><b>9% — Tier 2.</b> 2 channels flagged.</div></div>
-              <div class="li"><span class="sw" style="background:var(--t1)"></span><div><b>4% — Tier 1.</b> 3+ channels — full expert review.</div></div>
+              <div class="li"><span class="sw" style="background:var(--ok)"></span><div><b>70% &mdash; Clear.</b> No reviewer time required.</div></div>
+              <div class="li"><span class="sw" style="background:var(--t3)"></span><div><b>17% &mdash; Tier 3.</b> 1 channel flagged.</div></div>
+              <div class="li"><span class="sw" style="background:var(--t2)"></span><div><b>9% &mdash; Tier 2.</b> 2 channels flagged.</div></div>
+              <div class="li"><span class="sw" style="background:var(--t1)"></span><div><b>4% &mdash; Tier 1.</b> 3+ channels &mdash; full expert review.</div></div>
             </div>
           </div>
 
@@ -143,14 +143,14 @@
             <div class="vtitle"><h4>Does it catch the bad ones?</h4><span class="vsub">134 historically rejected surveys, scored out-of-sample</span></div>
             <div class="lift">
               <div class="row">
-                <div class="rl"><span>Flagged by at least one channel</span><span><b>85%</b> <span class="x">2.8× baseline</span></span></div>
+                <div class="rl"><span>Flagged by at least one channel</span><span><b>85%</b> <span class="x">2.8&times; baseline</span></span></div>
                 <div class="track">
                   <div class="base" style="width:30%"><span class="blab">baseline 30%</span></div>
                   <div class="fill" style="width:85%">85% of rejected surveys</div>
                 </div>
               </div>
               <div class="row">
-                <div class="rl"><span>Classified Tier 1 (highest priority)</span><span><b>50%</b> <span class="x">~12× baseline</span></span></div>
+                <div class="rl"><span>Classified Tier 1 (highest priority)</span><span><b>50%</b> <span class="x">~12&times; baseline</span></span></div>
                 <div class="track">
                   <div class="base" style="width:4%"></div>
                   <div class="fill" style="width:50%">50% of rejected surveys</div>
@@ -175,7 +175,7 @@ $ <span class="b">Rscript</span> score_survey.R data/new_survey.csv
         <div class="cs-section">
           <div class="takeaway">
             <div class="lab">The takeaway</div>
-            <p>Automated screening only earns trust when it hands reviewers structured evidence — not a verdict. Five methods, five reasons, one queue.</p>
+            <p>Automated screening only earns trust when it hands reviewers structured evidence &mdash; not a verdict. Five methods, five reasons, one queue.</p>
           </div>
         </div>
 
@@ -183,7 +183,7 @@ $ <span class="b">Rscript</span> score_survey.R data/new_survey.csv
         <div class="cs-section" style="border-bottom:0;padding-bottom:8px">
           <div class="cta">
             <div>
-              <h3>Have a workflow that's outgrown manual review?</h3>
+              <h3>Have a workflow that&rsquo;s outgrown manual review?</h3>
               <p>I build reproducible pipelines that turn ad-hoc, expert-judgement processes into systems your team can trust and maintain.</p>
             </div>
             <div style="display:flex;gap:12px;flex-wrap:wrap">
