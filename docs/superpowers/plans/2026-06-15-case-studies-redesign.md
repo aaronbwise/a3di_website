@@ -158,7 +158,8 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;letter-s
 .site-header .brand-sub{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.04em}
 .site-header nav{display:flex;gap:22px;font-family:var(--mono);font-size:13.5px}
 .site-header nav a{color:var(--ink-2)}
-.site-header nav a:hover,.site-header nav a:focus-visible{color:var(--accent);text-decoration:none;outline:none}
+.site-header nav a:hover{color:var(--accent);text-decoration:none}
+.site-header nav a:focus-visible{color:var(--accent)}
 
 .nav-dropdown{position:relative}
 .nav-dropdown-toggle{cursor:pointer}
