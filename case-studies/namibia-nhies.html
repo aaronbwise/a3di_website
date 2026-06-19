@@ -35,176 +35,122 @@
 
   <main class="container">
     <a href="/" class="back-link">&larr; Home</a>
+    <article class="cs">
 
-    <div class="case-study-header">
-      <h1>Informing National Fortification Policy</h1>
-      <p class="subtitle">Multi-source food consumption and nutrient analysis for Namibia&rsquo;s fortification strategy</p>
+      <div class="cs-hero">
+        <div class="cs-eyebrow"><span class="org">Iodine Global Network</span> &middot; Namibia</div>
+        <h1>Informing national fortification policy</h1>
+        <p class="deck">Multi-source analysis of what Namibian households actually eat &mdash; by region and by supply chain &mdash; to turn a blanket fortification mandate into a targeted, evidence-based policy.</p>
 
-      <div class="meta-bar">
-        <div class="meta-item">
-          <div class="label">Client</div>
-          <div class="value">Iodine Global Network (IGN)</div>
+        <div class="cs-stats">
+          <div class="cs-stat"><div class="v">10<small>&times;</small></div><div class="k">regional spread in staple intake (wheat 30&ndash;292 g/c/d)</div></div>
+          <div class="cs-stat"><div class="v">14</div><div class="k">regions analysed</div></div>
+          <div class="cs-stat"><div class="v">7</div><div class="k">fortification vehicles assessed</div></div>
+          <div class="cs-stat"><div class="v">199</div><div class="k">food items harmonised into one FCT</div></div>
         </div>
-        <div class="meta-item">
-          <div class="label">Sector</div>
-          <div class="value">Food security &amp; micronutrient fortification</div>
-        </div>
-        <div class="meta-item">
-          <div class="label">Country</div>
-          <div class="value">Namibia</div>
-        </div>
-        <div class="meta-item">
-          <div class="label">Data</div>
-          <div class="value">NHIES 2015&ndash;16, DHS 2000&ndash;2013, 4 Food Composition Tables</div>
-        </div>
-        <div class="meta-item">
-          <div class="label">Duration</div>
-          <div class="value">Jul 2020&ndash;Apr 2021</div>
+
+        <div class="cs-meta">
+          <div class="m"><div class="mk">Client</div><div class="mv">Iodine Global Network (IGN)</div></div>
+          <div class="m"><div class="mk">Role</div><div class="mv">Analysis &amp; modelling</div></div>
+          <div class="m"><div class="mk">Data</div><div class="mv">NHIES 2015&ndash;16 &middot; DHS 2000&ndash;2013 &middot; 4 FCTs</div></div>
+          <div class="m"><div class="mk">Scale</div><div class="mv">14 regions &middot; 7 vehicles</div></div>
+          <div class="m"><div class="mk">Timeline</div><div class="mv">Jul 2020 &ndash; Apr 2021</div></div>
         </div>
       </div>
 
-      <div class="stats-bar">
-        <div class="stat">
-          <span class="stat-number">14</span>
-          <span class="stat-label">Regions</span>
+      <div class="cs-body">
+
+        <div class="cs-section">
+          <div class="lab">At a glance</div>
+          <div class="glance">
+            <div class="g">
+              <div class="gk">The problem</div>
+              <div class="gv">Namibia committed to mandatory staple-food fortification &mdash; but setting standards needs evidence: which foods households eat, how much, through which supply chains, and how that varies across 14 regions.</div>
+            </div>
+            <div class="g">
+              <div class="gk">What I built</div>
+              <div class="gv">A modular Python system over NHIES 2015&ndash;16, three DHS rounds, and four food-composition tables &mdash; computing weighted per-capita intake for seven candidate vehicles and a harmonised 199-item nutrient database.</div>
+            </div>
+            <div class="g out">
+              <div class="gk">The outcome</div>
+              <div class="gv">Regional fortification vehicle profiles showing ~10&times; variation in staple intake and &gt;45% own-production share for some grains &mdash; evidence that a blanket commercial mandate alone would not reach everyone.</div>
+            </div>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-number">7</span>
-          <span class="stat-label">Vehicles assessed</span>
+
+        <div class="cs-section">
+          <div class="lab"><span class="ix">01</span> Challenge</div>
+          <h2>You cannot set fortification standards on a national average</h2>
+          <p>Namibia&rsquo;s Food and Nutrition Security Policy committed the government to mandatory fortification of staple foods. But before setting standards, policymakers needed answers: which foods do households actually consume, in what quantities, and through which supply chains? How does that vary across 14 regions? And what is the baseline for nutrients &mdash; like iodine &mdash; where fortification is already underway?</p>
+          <p>The Iodine Global Network contracted A3DI to build the evidence around the 2015&ndash;16 National Household Income and Expenditure Survey (NHIES) &mdash; a 12-month, nationally representative survey with seven-day food diaries. The raw microdata had not been analysed at the detail needed for <strong>vehicle selection, dosage setting, or supply-chain targeting</strong>.</p>
+          <div class="aside">
+            <div class="at">The real requirement</div>
+            <p>Region-level evidence for vehicle selection, dosage setting, and supply-chain targeting &mdash; not a single national figure that hides where the policy would and would not reach.</p>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-number">199</span>
-          <span class="stat-label">Food items harmonised</span>
+
+        <div class="cs-section">
+          <div class="lab"><span class="ix">02</span> Approach</div>
+          <h2>Three data sources, seven vehicles, fourteen regions</h2>
+          <p>A3DI built a modular analysis system in Python across 15+ Jupyter notebooks, with a custom analytics module for weighted survey calculations (weighted means, weighted medians, and a generalised disaggregation function). The work ran in four interconnected phases.</p>
+
+          <div class="flow">
+            <div class="node"><div class="nk">Input</div><div class="nt">3 data sources</div><div class="nd">NHIES, DHS salt, 4 FCTs</div></div>
+            <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="node"><div class="nk">Baseline</div><div class="nt">Grain consumption</div><div class="nd">own-production vs market</div></div>
+            <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="node"><div class="nt">Compute</div><div class="nk">Intake</div><div class="nd">g/c/d &times; 7 vehicles &times; 14 regions</div></div>
+            <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="node" style="border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-50)"><div class="nk">Harmonise</div><div class="nt">199-item FCT</div><div class="nd">&rarr; vehicle profiles</div></div>
+          </div>
+
+          <div class="aside">
+            <div class="at">Why the sourcing distinction matters</div>
+            <p>Only commercially processed grain can be fortified, so the pipeline tracked <strong>own-production vs market purchase</strong>, not just intake. Four food-composition tables (West African 2012, Kenyan, USDA SR24, South African 2017 &mdash; the last PDF-extracted with Camelot) were standardised into one 199-item dataset that fed FAO&rsquo;s ADePT-Food Security Module for micronutrient adequacy modelling.</p>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-number">13</span>
-          <span class="stat-label">Years of salt trends</span>
+
+        <div class="cs-section">
+          <div class="lab"><span class="ix">03</span> Result</div>
+          <h2>Consumption varies up to tenfold across regions</h2>
+
+          <div class="viz">
+            <div class="vtitle"><h4>Staple intake ranges across 14 regions</h4><span class="vsub">g/c/d, min&ndash;max on a common 0&ndash;460 scale</span></div>
+            <div class="mini">
+              <div class="mrow"><span class="ml">Wheat</span><div class="range"><div class="span" style="left:6%;width:57%"></div></div><span class="mv">30&ndash;292</span></div>
+              <div class="mrow"><span class="ml">Mahangu</span><div class="range"><div class="span" style="left:1%;width:97%"></div></div><span class="mv">4&ndash;452</span></div>
+              <div class="mrow"><span class="ml">Maize</span><div class="range"><div class="span" style="left:15%;width:59%"></div></div><span class="mv">67&ndash;338</span></div>
+              <div class="mrow"><span class="ml">Salt</span><div class="range"><div class="span" style="left:1%;width:2%"></div></div><span class="mv">2.8&ndash;7.5</span></div>
+            </div>
+            <p style="font-size:12px;color:var(--ink-3);margin:0;max-width:none">Min&ndash;max across the 14 regions, straight from the NHIES analysis.</p>
+          </div>
+
+          <p>Wheat intake ranged from 30 to 292 g/c/d across regions; mahangu from 4 to 452; maize from 67 to 338. Own-production consumption <strong>exceeded 45%</strong> for certain grains in specific regions &mdash; meaning a substantial share of grain intake would not be reached by mandatory commercial fortification alone.</p>
+          <p>Salt consumption averaged 5.4 g/c/d nationally (median 4.9), ranging from 2.8 to 7.5 across regions &mdash; essential for setting dosage that delivers adequate micronutrients without exceeding safe limits. The harmonised Food Composition Table gave government and IGN a standardised, locally relevant nutrient database, delivered as reproducible Jupyter notebooks with Excel workbook outputs the team can re-run as new data arrives.</p>
         </div>
+
+        <div class="cs-section">
+          <div class="takeaway">
+            <div class="lab">The takeaway</div>
+            <p>Fortification policy needs more than knowing what people eat &mdash; it needs how much, where, and through which supply chains.</p>
+          </div>
+        </div>
+
+        <div class="cs-section" style="border-bottom:0;padding-bottom:8px">
+          <div class="cta">
+            <div>
+              <h3>Turning multi-source data into policy evidence?</h3>
+              <p>I harmonise messy, multi-source survey and composition data into reproducible analysis your stakeholders can explore and update.</p>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <a class="btn" href="mailto:aaron@a3di.dev">aaron@a3di.dev &rarr;</a>
+              <a class="btn ghost" href="https://www.a3di.dev/#work">See more work</a>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
-
-    <section class="case-study-section">
-      <h2>Challenge</h2>
-      <p>
-        Namibia&rsquo;s Food and Nutrition Security Policy and Implementation Action Plan
-        (2019&ndash;2024) committed the government to mandatory fortification of staple
-        foods as a strategy to address micronutrient deficiencies. But before setting
-        fortification standards, policymakers needed answers to a series of interconnected
-        questions: which foods do Namibian households actually consume, in what quantities,
-        and through which supply chains? How does consumption vary across the country&rsquo;s
-        14 regions and demographic groups? And what is the baseline for nutrients &mdash;
-        like iodine &mdash; where fortification is already underway?
-      </p>
-      <p>
-        The Iodine Global Network contracted A3DI for a multi-phase analytical programme
-        built around the 2015&ndash;16 National Household Income and Expenditure Survey
-        (NHIES), a 12-month nationally representative survey with seven-day food diary
-        entries linked to household demographics and income. The raw microdata had not been
-        analysed at the level of detail needed for fortification vehicle selection, dosage
-        setting, or supply-chain targeting.
-      </p>
-    </section>
-
-    <section class="case-study-section">
-      <h2>Approach</h2>
-      <p>
-        A3DI built a modular analysis system in Python across 15+ Jupyter notebooks,
-        supported by a custom analytics module for weighted survey calculations
-        (weighted means, weighted medians, and a generalised disaggregation function).
-        The work proceeded in four interconnected phases.
-      </p>
-
-      <div class="pipeline-diagram">
-        <div class="pipeline-row">
-          <div class="pipeline-node"><strong>NHIES 2015&ndash;16</strong><span>14 regions, 12 months</span></div>
-          <div class="pipeline-node"><strong>DHS salt modules</strong><span>2000, 2006, 2013</span></div>
-          <div class="pipeline-node"><strong>4 Food Composition Tables</strong><span>W. Africa, Kenya, USDA, S. Africa</span></div>
-        </div>
-        <div class="pipeline-arrow">&darr;</div>
-        <div class="pipeline-row">
-          <div class="pipeline-node"><strong>Grain production &amp; consumption</strong><span>baseline analysis</span></div>
-          <div class="pipeline-node"><strong>Iodization trends</strong><span>weighted, 13 years</span></div>
-          <div class="pipeline-node"><strong>FCT harmonisation</strong><span>PDF extraction &amp; cross-table merge</span></div>
-        </div>
-        <div class="pipeline-arrow">&darr;</div>
-        <div class="pipeline-row">
-          <div class="pipeline-node"><strong>g/c/d &times; 7 vehicles</strong><span>14 regions</span></div>
-          <div class="pipeline-node"><strong>Regional salt trends</strong><span>by residence &amp; education</span></div>
-          <div class="pipeline-node"><strong>199-item standardised FCT</strong><span>for nutrient modelling</span></div>
-        </div>
-        <div class="pipeline-arrow">&darr;</div>
-        <div class="pipeline-node-wide">Regional fortification vehicle profiles<span>consumption, supply-chain sourcing, nutrient gaps</span></div>
-      </div>
-
-      <p>
-        <strong>Grain production and consumption baseline.</strong> The initial phase
-        categorised food diary items into grain types (wheat, mahangu/pearl millet, maize,
-        sorghum) and tracked whether households sourced grain from own production or market
-        purchase &mdash; a critical distinction, since only commercially processed grain
-        can be fortified. Results were disaggregated by region, urban/rural classification,
-        income level, language, and household head demographics, then validated against
-        Ministry of Agriculture administrative data.
-      </p>
-      <p>
-        <strong>Daily intake for seven fortification vehicles.</strong> Building on the
-        baseline, A3DI calculated grams per capita per day (g/c/d) estimates at national
-        and regional levels for each candidate vehicle: wheat, maize, mahangu, salt, milk,
-        oil, and sugar. Household-level prevalence &mdash; the share of households consuming
-        each vehicle at all &mdash; was computed alongside mean intake to distinguish
-        between low average consumption and narrow reach.
-      </p>
-      <p>
-        <strong>Food Composition Table harmonisation.</strong> Four FCTs (West African 2012,
-        Kenyan, USDA SR24, and South African 2017) were standardised into a single 199-item
-        dataset covering calcium, iron, zinc, folate, and vitamins A through E. The South
-        African table required PDF extraction using Camelot before it could be integrated.
-        The harmonised dataset fed into FAO&rsquo;s ADePT-Food Security Module for
-        micronutrient adequacy modelling.
-      </p>
-      <p>
-        <strong>Historical salt iodization trends.</strong> Three rounds of DHS data
-        (2000, 2006, 2013) were analysed to track salt iodization status over 13 years,
-        disaggregated by region, urban/rural residence, and education level. This provided
-        the historical baseline for a nutrient where Namibia already had a fortification
-        programme in place.
-      </p>
-    </section>
-
-    <section class="case-study-section">
-      <h2>Result</h2>
-      <p>
-        The analysis revealed dramatic regional variation in consumption of candidate
-        fortification vehicles. Wheat intake ranged from 30 to 292 g/c/d across regions;
-        mahangu from 4 to 452 g/c/d; maize from 67 to 338 g/c/d. Own-production
-        consumption exceeded 45% for certain grains in specific regions, meaning a
-        substantial share of household grain intake would not be reached by mandatory
-        commercial fortification alone.
-      </p>
-      <p>
-        Salt consumption averaged 5.4 g/c/d nationally (median 4.9), ranging from 2.8
-        to 7.5 g/c/d across regions &mdash; essential data for setting fortification
-        dosage levels that deliver adequate micronutrients without exceeding safe limits.
-        The DHS trend analysis showed how iodization coverage had evolved, identifying
-        regions where historical progress had stalled.
-      </p>
-      <p>
-        The harmonised Food Composition Table gave government and IGN stakeholders a
-        standardised, locally relevant nutrient database for modelling the impact of
-        different fortification scenarios. All work was delivered as reproducible Jupyter
-        notebooks with Excel workbook outputs, enabling stakeholders to explore results
-        directly and update the analysis as new survey data becomes available.
-      </p>
-    </section>
-
-    <div class="takeaway">
-      <h2>Key Takeaway</h2>
-      <p>
-        Fortification policy requires more than knowing what people eat &mdash; it requires
-        knowing how much, where, and through which supply chains, across every region and
-        demographic group. Building that evidence base from multiple data sources turns
-        fortification from a blanket policy into a targeted intervention.
-      </p>
-    </div>
+    </article>
   </main>
 
   <footer class="site-footer">
