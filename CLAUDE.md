@@ -17,7 +17,6 @@ No test framework or linter is configured.
 Multi-page static site (Vite MPA mode). Each page is a standalone HTML file sharing `style.css`:
 
 - `index.html` — Homepage (intro, services with bullet details, case study cards)
-- `cv/index.html` — Full CV (experience, education, skills, publications)
 - `case-studies/alive-and-thrive.html` — A&T multi-country MCHN equity analysis
 - `case-studies/unicef-dq-screener.html` — UNICEF JME data quality screening pipeline
 
@@ -40,7 +39,7 @@ The visual language follows the case-studies redesign (see `case-studies-redesig
 - Semantic tier scale (quality flagging): `--t1 / --t2 / --t3 / --ok` (+ matching `*-bg`)
 - Surfaces: `--radius / --radius-sm`, `--shadow-sm / --shadow / --shadow-lg`
 - Layout: `--maxw` (1080px)
-- Legacy aliases (`--bg`, `--text`, `--dark`, `--border`, `--text-muted`, etc.) map onto the tokens above for back-compat with older markup and the orphaned CV page.
+- Legacy aliases (`--bg`, `--text`, `--dark`, `--border`, `--text-muted`, etc.) map onto the tokens above for back-compat with older markup.
 
 ### Case-study component vocabulary
 

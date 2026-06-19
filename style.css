@@ -35,7 +35,6 @@
   --text-subtle: var(--ink-2);
   --text-faint: var(--ink-3);
   --text-label: var(--ink-3);
-  --text-placeholder:#b0b0b0;
   --max-width: var(--maxw);
 }
 
@@ -285,22 +284,6 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;letter-s
 .code-block .filename{display:block;padding:11px 15px;font-size:11.5px;color:#7E8DA8;border-bottom:1px solid #1c2540;font-family:var(--mono)}
 .code-block pre{padding:16px 18px;margin:0;overflow-x:auto;font-family:var(--mono)}
 .code-block code{font-family:var(--mono)}
-
-/* ---------- CV page (orphaned, preserved) ---------- */
-.cv-section{padding:2rem 0}
-.cv-section h2{margin-bottom:1rem}
-.cv-entry{margin-bottom:1.5rem}
-.cv-entry:last-child{margin-bottom:0}
-.cv-entry h3{font-size:1rem;margin-bottom:.1rem}
-.cv-entry .org{font-size:.9rem;color:var(--ink-2)}
-.cv-entry .dates{font-size:.82rem;color:var(--ink-3);margin-bottom:.4rem}
-.cv-entry p,.cv-entry ul{font-size:.92rem}
-.cv-entry ul{list-style:disc;padding-left:1.25rem}
-.cv-entry ul li + li{margin-top:.25rem}
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.skills-grid h3{font-size:.95rem}
-.skills-grid p{font-size:.9rem;color:var(--ink-2)}
-.placeholder{color:var(--text-placeholder);font-style:italic}
 
 /* ---------- responsive ---------- */
 @media (max-width:880px){

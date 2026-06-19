@@ -14,9 +14,8 @@
 - `case-studies/alive-and-thrive.html`
 - `case-studies/namibia-nhies.html`
 
-`cv/index.html` exists but is **orphaned** — not in `vite.config.js` build inputs
-and not linked from nav (CV now points to external `aaronbwise.com`). It is **out
-of scope** for this redesign.
+There is no local CV page — the footer's "CV" link points to the external
+`aaronbwise.com`. CV is **out of scope** for this redesign.
 
 The current case studies are technically strong but read as four stacked walls of
 prose: the strongest numbers are buried mid-paragraph, metadata leads instead of
