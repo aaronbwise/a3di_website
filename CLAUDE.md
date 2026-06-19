@@ -29,14 +29,22 @@ All pages share a header with a CSS-only dropdown menu under "Case Studies" (hov
 
 ## Styling
 
-Single `style.css` file shared across all pages. System font stack (no web fonts).
+Single `style.css` file shared across all pages. **System font stack (no web fonts)** &mdash; three type roles are defined as CSS variables, all mapped to system stacks: `--display` (headings), `--body`, and `--mono`.
+
+The visual language follows the case-studies redesign (see `case-studies-redesign.html`, the committed design reference, and `docs/superpowers/specs/2026-06-15-case-studies-redesign-design.md`). Charts and diagrams are **hand-rolled CSS &mdash; no chart library, no JS**.
 
 ### Design tokens (CSS custom properties)
 
-- `--bg`, `--text`, `--accent`, `--dark` — core palette
-- `--text-muted`, `--text-subtle`, `--text-faint`, `--text-label`, `--text-placeholder` — semantic gray scale
-- `--code-bg`, `--tag-bg` — surface colors (currently same value, independently adjustable)
-- `--border`, `--max-width` — layout
+- Palette: `--ink / --ink-2 / --ink-3` (text), `--paper / --surface / --surface-2` (backgrounds), `--line / --line-2` (borders)
+- Accent: `--accent / --accent-ink / --accent-50 / --accent-100`
+- Semantic tier scale (quality flagging): `--t1 / --t2 / --t3 / --ok` (+ matching `*-bg`)
+- Surfaces: `--radius / --radius-sm`, `--shadow-sm / --shadow / --shadow-lg`
+- Layout: `--maxw` (1080px)
+- Legacy aliases (`--bg`, `--text`, `--dark`, `--border`, `--text-muted`, etc.) map onto the tokens above for back-compat with older markup and the orphaned CV page.
+
+### Case-study component vocabulary
+
+Case-study pages are `<main class="container"> > <article class="cs"> > .cs-hero + .cs-body`. Inside `.cs-body`, content is grouped into `.cs-section` blocks. Reusable components: `.glance` (at-a-glance band), `.flow`/`.node` (pipeline), `.channels`/`.chan` (channel cards), `.aside` (callout), `.viz` + `.triage`/`.lift`/`.mini` (CSS charts), `.terminal` and `.code-block` (code), `.takeaway` (pull-quote), `.cta`.
 
 ### Typography conventions (enforced across all HTML files)
 
@@ -44,9 +52,9 @@ Single `style.css` file shared across all pages. System font stack (no web fonts
 - En-dashes: unspaced (`&ndash;`) for numeric ranges (years, pages)
 - British spelling: harmonise, analyse, optimise, programme, organisation
 - Curly apostrophes: `&rsquo;` in prose (straight quotes in attributes/code only)
-- Exception: publication titles are proper nouns — preserve original punctuation
+- Exception: publication titles are proper nouns &mdash; preserve original punctuation
 
-Responsive breakpoint at `768px`. The narrow max-width (740px) means most layouts work at mobile widths with minimal changes.
+Responsive breakpoints at `880px` and `560px`.
 
 ## Deployment
 
