@@ -35,107 +35,78 @@
 
   <main class="container">
     <a href="/" class="back-link">&larr; Home</a>
+    <article class="cs">
 
-    <div class="case-study-header">
-      <h1>Uncovering Who Is Furthest Behind</h1>
-      <p class="subtitle">Multi-country MCHN equity analysis for Alive &amp; Thrive</p>
+      <div class="cs-hero">
+        <div class="cs-eyebrow"><span class="org">Alive &amp; Thrive</span> &middot; FHI Solutions</div>
+        <h1>Uncovering who is furthest behind</h1>
+        <p class="deck">Two decades of maternal and child nutrition data across Cambodia, Lao&nbsp;PDR, and Viet&nbsp;Nam &mdash; harmonised into one pipeline that shows whether progress is reaching the people national averages hide.</p>
 
-      <div class="meta-bar">
-        <div class="meta-item">
-          <div class="label">Client</div>
-          <div class="value">Alive &amp; Thrive (FHI Solutions)</div>
+        <div class="cs-stats">
+          <div class="cs-stat"><div class="v">35<small>pp</small></div><div class="k">widest equity gap surfaced &mdash; between ethnic groups in Lao&nbsp;PDR</div></div>
+          <div class="cs-stat"><div class="v">15<small>+</small></div><div class="k">MICS &amp; DHS survey rounds harmonised</div></div>
+          <div class="cs-stat"><div class="v">3</div><div class="k">countries, across 20+ years of data</div></div>
+          <div class="cs-stat"><div class="v">5</div><div class="k">equity stratifiers, every indicator</div></div>
         </div>
-        <div class="meta-item">
-          <div class="label">Sector</div>
-          <div class="value">Maternal &amp; child health and nutrition</div>
-        </div>
-        <div class="meta-item">
-          <div class="label">Countries</div>
-          <div class="value">Cambodia, Lao PDR, Viet Nam</div>
-        </div>
-        <div class="meta-item">
-          <div class="label">Data</div>
-          <div class="value">15+ survey rounds, 2000&ndash;2023</div>
-        </div>
-        <div class="meta-item">
-          <div class="label">Duration</div>
-          <div class="value">April&ndash;December 2022</div>
+
+        <div class="cs-meta">
+          <div class="m"><div class="mk">Client</div><div class="mv">Alive &amp; Thrive (FHI Solutions)</div></div>
+          <div class="m"><div class="mk">Role</div><div class="mv">Design &amp; build</div></div>
+          <div class="m"><div class="mk">Stack</div><div class="mv">Python, configuration-driven</div></div>
+          <div class="m"><div class="mk">Data</div><div class="mv">15+ rounds &middot; Cambodia, Lao PDR, Viet Nam</div></div>
+          <div class="m"><div class="mk">Timeline</div><div class="mv">Apr &ndash; Dec 2022</div></div>
         </div>
       </div>
 
-      <div class="stats-bar">
-        <div class="stat">
-          <span class="stat-number">15+</span>
-          <span class="stat-label">Survey rounds</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">3</span>
-          <span class="stat-label">Countries</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">20+</span>
-          <span class="stat-label">Years of data</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">5</span>
-          <span class="stat-label">Equity stratifiers</span>
-        </div>
-      </div>
-    </div>
+      <div class="cs-body">
 
-    <section class="case-study-section">
-      <h2>Challenge</h2>
-      <p>
-        Alive &amp; Thrive needed to understand how maternal and child health and nutrition
-        outcomes had changed over two decades across Cambodia, Lao PDR, and Viet Nam, and
-        critically, whether progress was reaching the most vulnerable populations.
-      </p>
-      <p>
-        National averages can mask deep disparities: improvements in antenatal care,
-        breastfeeding, or dietary diversity at the country level may not reflect the reality for
-        ethnic minorities, rural communities, or the poorest households. With funding from the
-        Government of Ireland, A&amp;T wanted an evidence base to inform targeted programming,
-        policy advocacy, and donor engagement across the Mekong Sub-Region. But the data sat in
-        dozens of separate survey files, collected using different instruments and variable
-        definitions over more than 20 years.
-      </p>
-    </section>
-
-    <section class="case-study-section">
-      <h2>Approach</h2>
-      <p>
-        A3DI designed and built a reproducible, configuration-driven analysis pipeline in Python
-        to harmonise data from 15+ rounds of MICS and DHS surveys across the three countries.
-      </p>
-
-      <div class="pipeline-diagram">
-        <div class="pipeline-row">
-          <div class="pipeline-node"><strong>Raw SPSS files</strong><span>survey microdata</span></div>
-          <div class="pipeline-node"><strong>JSON config</strong><span>per country-year</span></div>
-          <div class="pipeline-node"><strong>Ingest &amp; standardise</strong><span>variable mapping</span></div>
-          <div class="pipeline-node"><strong>Merge records</strong><span>household + individual</span></div>
+        <div class="cs-section">
+          <div class="lab">At a glance</div>
+          <div class="glance">
+            <div class="g">
+              <div class="gk">The problem</div>
+              <div class="gv">National averages can hide who is being left behind. A&amp;T needed to know whether 20 years of MCHN progress reached ethnic minorities, rural communities, and the poorest households &mdash; but the evidence sat in dozens of incompatible survey files.</div>
+            </div>
+            <div class="g">
+              <div class="gk">What I built</div>
+              <div class="gv">A configuration-driven Python pipeline that harmonises 15+ MICS/DHS rounds, computes standard MCHN indicators, and disaggregates every one by five equity stratifiers across more than 20 years.</div>
+            </div>
+            <div class="g out">
+              <div class="gk">The outcome</div>
+              <div class="gv">Per-country equity profiles that surfaced gaps the averages hid &mdash; including a 35-percentage-point gap between ethnic groups in Lao&nbsp;PDR &mdash; delivered as a reusable asset that extends to new countries and rounds.</div>
+            </div>
+          </div>
         </div>
-        <div class="pipeline-arrow">&darr;</div>
-        <div class="pipeline-node-wide">Compute MCHN indicators</div>
-        <div class="pipeline-arrow">&darr;</div>
-        <div class="pipeline-row">
-          <div class="pipeline-node"><strong>Disaggregated tabulations</strong><span>5 equity stratifiers</span></div>
-          <div class="pipeline-node"><strong>Weighted logistic regression</strong><span>trend analysis</span></div>
+
+        <div class="cs-section">
+          <div class="lab"><span class="ix">01</span> Challenge</div>
+          <h2>National averages mask who progress reaches</h2>
+          <p>Alive &amp; Thrive needed to understand how maternal and child health and nutrition outcomes had changed over two decades across Cambodia, Lao&nbsp;PDR, and Viet&nbsp;Nam &mdash; and, critically, whether that progress was reaching the most vulnerable populations.</p>
+          <p>Improvements in antenatal care, breastfeeding, or dietary diversity at the country level may not reflect the reality for ethnic minorities, rural communities, or the poorest households. But the data sat in dozens of separate survey files, collected with <strong>different instruments and variable definitions</strong> over more than 20 years.</p>
+          <div class="aside">
+            <div class="at">The real requirement</div>
+            <p>A reusable evidence base &mdash; not a one-off report &mdash; that A&amp;T could extend to new countries and survey rounds without rebuilding the analysis from scratch.</p>
+          </div>
         </div>
-        <div class="pipeline-arrow">&darr;</div>
-        <div class="pipeline-node-wide">Equity profiles &amp; presentations</div>
-      </div>
 
-      <p>
-        Each country-year combination required its own mapping of raw survey variables to
-        standardised indicator definitions. These mappings were managed through JSON configuration
-        files rather than hardcoded logic, so the same codebase could process Viet Nam&rsquo;s 2000
-        MICS and Cambodia&rsquo;s 2021 DHS without modification.
-      </p>
+        <div class="cs-section">
+          <div class="lab"><span class="ix">02</span> Approach</div>
+          <h2>One config per survey, five equity lenses on every indicator</h2>
+          <p>A3DI built a reproducible, configuration-driven analysis pipeline in Python to harmonise 15+ rounds of MICS and DHS surveys across the three countries, then disaggregate every indicator across five stratifiers and across time.</p>
 
-      <div class="code-block">
-        <span class="filename">config/vnm_2021_children.json</span>
-        <pre><code>{
+          <div class="flow">
+            <div class="node"><div class="nk">Input</div><div class="nt">Raw SPSS</div><div class="nd">15+ MICS/DHS rounds</div></div>
+            <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="node"><div class="nk">Configure</div><div class="nt">JSON per country-year</div><div class="nd">variable mapping</div></div>
+            <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="node"><div class="nk">Harmonise</div><div class="nt">Merge &amp; compute</div><div class="nd">weighted MCHN indicators</div></div>
+            <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="node" style="border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-50)"><div class="nk">Disaggregate</div><div class="nt">5 stratifiers</div><div class="nd">+ weighted logistic trends</div></div>
+          </div>
+
+          <div class="code-block">
+            <span class="filename">config/vnm_2021_children.json</span>
+            <pre><code>{
   "country": "VNM",
   "survey_year": 2021,
   "survey_type": "MICS",
@@ -154,59 +125,54 @@
     "mother_edu": "welevel"
   }
 }</code></pre>
+          </div>
+
+          <div class="aside">
+            <div class="at">Why it earns trust</div>
+            <p>Each country-year maps raw survey variables to standardised indicator definitions through a <strong>JSON config, not hardcoded logic</strong> &mdash; so Viet&nbsp;Nam&rsquo;s 2000 MICS and Cambodia&rsquo;s 2021 DHS run through the same codebase. Every statistic is weighted for the complex survey designs, and disaggregated by wealth quintile, region, residence, ethnicity of household head, and mother&rsquo;s education.</p>
+          </div>
+        </div>
+
+        <div class="cs-section">
+          <div class="lab"><span class="ix">03</span> Result</div>
+          <h2>Progress was real &mdash; but deeply uneven</h2>
+
+          <div class="viz">
+            <div class="vtitle"><h4>The gap national averages hid</h4><span class="vsub">Lao PDR &middot; between ethnic groups</span></div>
+            <div class="mini" aria-hidden="true">
+              <div class="mrow"><span class="ml">Majority</span><div class="mt"><i style="width:84%"></i></div><span class="mv">higher</span></div>
+              <div class="mrow"><span class="ml">Minority</span><div class="mt"><i style="width:49%;background:linear-gradient(90deg,#E5484D,#f08a8d)"></i></div><span class="mv">lower</span></div>
+              <div class="mrow"><span class="ml">Gap</span><div class="range"><div class="span" style="left:49%;width:35%;background:repeating-linear-gradient(45deg,#0c1322,#0c1322 5px,#26324a 5px,#26324a 10px)"></div></div><span class="mv">35pp</span></div>
+            </div>
+            <p style="font-size:12px;color:var(--ink-3);margin:0;max-width:none">Schematic of the pattern; <strong>35pp is the real finding</strong> &mdash; the breastfeeding/dietary-diversity gap between ethnic groups. The national average sits between the two.</p>
+          </div>
+
+          <p>The analysis produced a comprehensive equity profile for each country. Wealth-driven disparities persisted across most indicators; access to services like antenatal care and institutional delivery had expanded substantially, but the <strong>quality</strong> of care within them improved far less.</p>
+          <p>Regional and ethnic disparities remained substantial &mdash; particularly in Lao&nbsp;PDR, where gaps in breastfeeding and dietary diversity between ethnic groups <strong>exceeded 35 percentage points</strong>. A&amp;T used the findings to inform country strategies, advocacy with government and donors, and regional knowledge products. Because the pipeline is configuration-driven, it extends to new countries or survey rounds without rebuilding &mdash; a reusable asset, not a one-off deliverable.</p>
+        </div>
+
+        <div class="cs-section">
+          <div class="takeaway">
+            <div class="lab">The takeaway</div>
+            <p>When national averages show progress, disaggregated analysis is the only way to know whether it reaches the people who need it most.</p>
+          </div>
+        </div>
+
+        <div class="cs-section" style="border-bottom:0;padding-bottom:8px">
+          <div class="cta">
+            <div>
+              <h3>Need to know who your averages are hiding?</h3>
+              <p>I build reproducible, configuration-driven pipelines that turn scattered survey rounds into equity evidence your team can extend.</p>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <a class="btn" href="mailto:aaron@a3di.dev">aaron@a3di.dev &rarr;</a>
+              <a class="btn ghost" href="https://www.a3di.dev/#work">See more work</a>
+            </div>
+          </div>
+        </div>
+
       </div>
-
-      <p>
-        The pipeline handled the full analytical workflow: reading raw SPSS survey files, merging
-        household and individual records, creating unique identifiers to link mothers and children
-        across datasets, and computing standard MCHN indicators spanning both health service
-        delivery (antenatal care, institutional delivery, postnatal care) and infant and young
-        child feeding practices (exclusive breastfeeding, minimum dietary diversity, minimum
-        acceptable diet, and others). All statistics were properly weighted to account for the
-        complex survey designs.
-      </p>
-      <p>
-        With cleaned, combined datasets in hand, A3DI produced disaggregated frequency tabulations
-        and weighted logistic regression models examining each indicator by wealth quintile,
-        geographic region, urban/rural residence, ethnicity of household head, and mother&rsquo;s
-        education level, across every available survey year. This revealed not just current gaps,
-        but how those gaps had evolved over time.
-      </p>
-    </section>
-
-    <section class="case-study-section">
-      <h2>Result</h2>
-      <p>
-        The analysis produced a comprehensive equity profile for each country, revealing that
-        while overall MCHN indicators had improved, progress was deeply uneven. Wealth-driven
-        disparities persisted across most indicators, and in some cases the poorest households
-        were beginning to catch up, but from a very low base. Access to health services like
-        antenatal care and institutional delivery had expanded substantially, but the quality of
-        care within those services showed far less improvement.
-      </p>
-      <p>
-        Regional and ethnic disparities remained substantial, particularly in Lao PDR where gaps
-        in breastfeeding and dietary diversity between ethnic groups exceeded 35 percentage
-        points.
-      </p>
-      <p>
-        A&amp;T used the findings to inform country-level strategies, advocacy with government
-        partners and donors, and as inputs for knowledge products shared across the region. The
-        configuration-driven approach meant the pipeline could be extended to additional countries
-        or updated with new survey rounds without rebuilding the analysis from scratch. A reusable
-        asset rather than a one-off deliverable.
-      </p>
-    </section>
-
-    <div class="takeaway">
-      <h2>Key Takeaway</h2>
-      <p>
-        When national averages show progress, disaggregated analysis is the only way to know
-        whether that progress is reaching the people who need it most. Building a reproducible
-        pipeline to do that analysis is what turns a one-time project into a lasting
-        capability.
-      </p>
-    </div>
+    </article>
   </main>
 
   <footer class="site-footer">
