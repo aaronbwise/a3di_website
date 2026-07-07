@@ -253,6 +253,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;letter-s
 .terminal pre .c{color:#828FAB}
 .terminal pre .g{color:#6BD08A}
 .terminal pre .b{color:#7CA0FF}
+.terminal pre .r{color:#F08585}
 
 /* takeaway */
 .takeaway{background:var(--ink);color:#EAEEF6;border-radius:var(--radius);padding:36px 40px;position:relative;overflow:hidden}

@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Data Quality Screening at Scale | Aaron Wise</title>
-  <meta name="description" content="Multi-channel statistical pipeline for automated quality screening of 1,000+ anthropometric surveys — UNICEF Joint Malnutrition Estimates." />
+  <meta name="description" content="A five-channel statistical screening system for 1,000+ anthropometric surveys, validated out-of-sample at AUC 0.87 — UNICEF Joint Malnutrition Estimates." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.a3di.dev/case-studies/unicef-dq-screener.html" />
+  <meta property="og:title" content="Data Quality Screening at Scale | Aaron Wise" />
+  <meta property="og:description" content="A five-channel statistical screening system for 1,000+ anthropometric surveys, validated out-of-sample at AUC 0.87 — UNICEF Joint Malnutrition Estimates." />
   <link rel="icon" type="image/jpeg" href="/img/favicon.jpg" />
   <link rel="stylesheet" href="/style.css" />
 </head>
@@ -34,23 +38,23 @@
     <article class="cs">
       <!-- HERO -->
       <div class="cs-hero">
-        <div class="cs-eyebrow"><span class="org">UNICEF</span> · Joint Malnutrition Estimates</div>
+        <div class="cs-eyebrow"><span class="org">UNICEF</span> &middot; Joint Malnutrition Estimates</div>
         <h1>Data quality screening at global scale</h1>
-        <p class="deck">An automated first-pass that triages 1,000+ anthropometric surveys &mdash; so expert reviewers spend their time only on the surveys that actually need it.</p>
+        <p class="deck">An automated first pass over the surveys behind the world&rsquo;s child-malnutrition estimates &mdash; 131 statistical indicators distilled into one calibrated score, so expert reviewers spend their time only where the evidence points.</p>
 
         <div class="cs-stats">
-          <div class="cs-stat"><div class="v">70<small>%</small></div><div class="k">of surveys cleared automatically &mdash; zero manual review</div></div>
-          <div class="cs-stat"><div class="v">85<small>%</small></div><div class="k">of known-bad surveys caught out-of-sample</div></div>
-          <div class="cs-stat"><div class="v">2.8<small>&times;</small></div><div class="k">detection vs. baseline (12&times; for Tier&nbsp;1)</div></div>
-          <div class="cs-stat"><div class="v">~1<small>sec</small></div><div class="k">to score a new survey, callable from Stata</div></div>
+          <div class="cs-stat"><div class="v">90<small>%</small></div><div class="k">of surveys clear automatically &mdash; zero manual review</div></div>
+          <div class="cs-stat"><div class="v">0.87</div><div class="k">out-of-sample AUC against historically rejected surveys</div></div>
+          <div class="cs-stat"><div class="v">5<small>&times;</small></div><div class="k">concentration of known-bad surveys in the review queue vs random</div></div>
+          <div class="cs-stat"><div class="v">10<small><sup>&#8722;14</sup></small></div><div class="k">Python&ndash;R agreement on every channel score, enforced as a release gate</div></div>
         </div>
 
         <div class="cs-meta">
           <div class="m"><div class="mk">Client</div><div class="mv">UNICEF / WHO / World Bank JME</div></div>
           <div class="m"><div class="mk">Role</div><div class="mv">Design &amp; build</div></div>
-          <div class="m"><div class="mk">Stack</div><div class="mv">Python → R, for Stata integration</div></div>
-          <div class="m"><div class="mk">Scale</div><div class="mv">1,091 surveys · 167 countries</div></div>
-          <div class="m"><div class="mk">Timeline</div><div class="mv">Dec 2025&ndash;May 2026</div></div>
+          <div class="m"><div class="mk">Stack</div><div class="mv">Python (model build) &middot; R (production scoring)</div></div>
+          <div class="m"><div class="mk">Scale</div><div class="mv">1,091 surveys &middot; 167 countries</div></div>
+          <div class="m"><div class="mk">Timeline</div><div class="mv">Dec 2025&ndash;Jul 2026</div></div>
         </div>
       </div>
 
@@ -67,11 +71,11 @@
             </div>
             <div class="g">
               <div class="gk">What I built</div>
-              <div class="gv">A configuration-driven pipeline computing 136 quality indicators per survey, scored through 5 independent statistical channels into a transparent, tiered review queue &mdash; evidence, not a black-box score.</div>
+              <div class="gv">A configuration-driven screening system computing 131 documented quality indicators per survey, scored through 5 independent statistical channels and combined into one calibrated composite &mdash; every flag traceable to named indicators.</div>
             </div>
             <div class="g out">
               <div class="gk">The outcome</div>
-              <div class="gv">70% of surveys clear automatically; reviewers focus on the flagged 30%. Validated to catch 85% of known-bad surveys at 2.8&times; the baseline rate &mdash; real quality differences, not noise.</div>
+              <div class="gv">90% of surveys clear automatically; the 10% review queue concentrates known-bad surveys at ~5&times; the random rate (AUC 0.87 out-of-sample). Endorsed by the WHO/UNICEF/World Bank JME partners in April 2026.</div>
             </div>
           </div>
         </div>
@@ -91,83 +95,85 @@
         <!-- APPROACH -->
         <div class="cs-section">
           <div class="lab"><span class="ix">02</span> Approach</div>
-          <h2>One survey in, 136 indicators, 5 independent verdicts</h2>
-          <p>The pipeline computes 136 quality indicators per survey across 10 dimensions, then scores each survey through 5 independent statistical channels &mdash; each answering a different question about quality, so a flag always comes with a reason.</p>
+          <h2>131 indicators, five channels, one calibrated score</h2>
+          <p>The pipeline computes 131 documented quality indicators per survey across 10 dimensions &mdash; age heaping and terminal-digit preference measured by index of dissimilarity, sex-ratio deviation against the demographic reference, WHO implausible-value flags, z-score dispersion, skewness and tail asymmetry. Fifteen representative indicators, selected one per dimension on effect size, feed five independent statistical channels &mdash; each answering a different question about quality, so a flag always comes with a reason.</p>
 
           <div class="flow">
-            <div class="node"><div class="nk">Input</div><div class="nt">1,091 CSVs</div><div class="nd">1980&ndash;2024 · 167 countries</div></div>
+            <div class="node"><div class="nk">Input</div><div class="nt">1,091 surveys</div><div class="nd">1980&ndash;2024 &middot; 167 countries</div></div>
             <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-            <div class="node"><div class="nk">Measure</div><div class="nt">136 indicators</div><div class="nd">10 calculator classes</div></div>
+            <div class="node"><div class="nk">Measure</div><div class="nt">131 indicators</div><div class="nd">10 quality dimensions</div></div>
             <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-            <div class="node"><div class="nk">Score</div><div class="nt">5 channels</div><div class="nd">process + output quality</div></div>
+            <div class="node"><div class="nk">Score</div><div class="nt">5 channels</div><div class="nd">severities, percentile-ranked</div></div>
             <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-            <div class="node" style="border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-50)"><div class="nk">Triage</div><div class="nt">4 review tiers</div><div class="nd">by # of channels flagging</div></div>
+            <div class="node" style="border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-50)"><div class="nk">Combine</div><div class="nt">1 composite score</div><div class="nd">flag at the 90th percentile</div></div>
           </div>
 
           <div class="channels">
-            <div class="chan"><span class="typ proc">Process</span><div class="id">A</div><h3>PCA composite</h3><p>Global ranking across all indicators</p></div>
-            <div class="chan"><span class="typ proc">Process</span><div class="id">B</div><h3>Mahalanobis</h3><p>Unusual indicator combinations</p></div>
-            <div class="chan"><span class="typ proc">Process</span><div class="id">C</div><h3>Mixed-effects</h3><p>Country-level residuals</p></div>
-            <div class="chan"><span class="typ out">Output</span><div class="id">E</div><h3>Prevalence outlier</h3><p>Epidemiological plausibility</p></div>
-            <div class="chan"><span class="typ out">Output</span><div class="id">F</div><h3>Prevalence coherence</h3><p>Internal consistency</p></div>
+            <div class="chan"><span class="typ proc">Process</span><div class="id">A</div><h3>PCA composite</h3><p>Global quality rank &mdash; PC1 carries 28.5% of variance</p></div>
+            <div class="chan"><span class="typ proc">Process</span><div class="id">B</div><h3>Mahalanobis</h3><p>Unusual indicator combinations, regularised covariance</p></div>
+            <div class="chan"><span class="typ proc">Process</span><div class="id">C</div><h3>Mixed-effects</h3><p>Unusual against the country&rsquo;s own history</p></div>
+            <div class="chan"><span class="typ out">Output</span><div class="id">E</div><h3>Prevalence outlier</h3><p>Off the country&rsquo;s epidemiological trajectory</p></div>
+            <div class="chan"><span class="typ out">Output</span><div class="id">F</div><h3>Prevalence coherence</h3><p>Estimates implausible taken together</p></div>
           </div>
 
           <div class="aside">
             <div class="at">Why it earns a statistician&rsquo;s trust</div>
-            <p>Channels A&ndash;C judge <strong>how data was collected</strong>; E&ndash;F judge <strong>whether the resulting estimates are plausible</strong> &mdash; a survey can have clean measurements but implausible prevalence, or vice versa. The mixed-effects models nest by WHO &times; World Bank region (17 groups) with per-country random intercepts, so single-survey countries borrow strength from their region while long-history countries are judged against their own trajectory. Fitted parameters persist as <strong>Parquet</strong> &mdash; language-agnostic across Python, R, and Stata.</p>
+            <p>Channels A&ndash;C judge <strong>how the data was collected</strong>; E&ndash;F judge <strong>whether the resulting estimates are plausible</strong>. Every model is fitted only on the 868 surveys the JME partners had already accepted &mdash; a <strong>one-class design</strong> that never trains on rejection labels. The mixed-effects channels nest countries in 17 WHO &times; World Bank regions &mdash; chosen over the alternatives by AIC &mdash; with per-country random intercepts, so single-survey countries borrow strength from their region while long-history countries are judged against their own trajectory. Channel severities are percentile-ranked against the accepted reference and combined by an <strong>equal-weight rank-mean</strong>, a rule that beat a naive count of flagging channels by +0.11 AUC in a formal tuning experiment.</p>
           </div>
         </div>
 
         <!-- RESULT -->
         <div class="cs-section">
           <div class="lab"><span class="ix">03</span> Result</div>
-          <h2>Reviewers&rsquo; time goes where the risk is</h2>
+          <h2>Ninety per cent clears &mdash; the queue that remains is dense with real problems</h2>
 
           <div class="viz">
-            <div class="vtitle"><h3>Where 1,091 surveys land</h3><span class="vsub">tier = number of channels flagging</span></div>
+            <div class="vtitle"><h3>Where 866 scored surveys land</h3><span class="vsub">flag = composite score above the 90th percentile of accepted surveys</span></div>
             <div class="triage">
-              <div class="seg" style="width:70%;background:var(--ok)"><span class="p">70%</span><span class="l">No review needed</span></div>
-              <div class="seg" style="width:17%;background:var(--t3)"><span class="p">17%</span><span class="l">Tier 3</span></div>
-              <div class="seg" style="width:9%;background:var(--t2)"><span class="p" style="font-size:15px">9%</span></div>
-              <div class="seg" style="width:4%;background:var(--t1)"><span class="p" style="font-size:13px">4%</span></div>
+              <div class="seg" style="width:90%;background:var(--ok)"><span class="p">90%</span><span class="l">No review needed</span></div>
+              <div class="seg" style="width:10%;background:var(--t1)"><span class="p" style="font-size:15px">10%</span></div>
             </div>
             <div class="legend">
-              <div class="li"><span class="sw" style="background:var(--ok)"></span><div><b>70% &mdash; Clear.</b> No reviewer time required.</div></div>
-              <div class="li"><span class="sw" style="background:var(--t3)"></span><div><b>17% &mdash; Tier 3.</b> 1 channel flagged.</div></div>
-              <div class="li"><span class="sw" style="background:var(--t2)"></span><div><b>9% &mdash; Tier 2.</b> 2 channels flagged.</div></div>
-              <div class="li"><span class="sw" style="background:var(--t1)"></span><div><b>4% &mdash; Tier 1.</b> 3+ channels &mdash; full expert review.</div></div>
+              <div class="li"><span class="sw" style="background:var(--ok)"></span><div><b>90% &mdash; Clear.</b> Below the calibrated threshold; no reviewer time required.</div></div>
+              <div class="li"><span class="sw" style="background:var(--t1)"></span><div><b>10% &mdash; Review.</b> 87 surveys, each flagged with per-channel severities and named indicators as evidence.</div></div>
             </div>
           </div>
+
+          <p>The 87 flags are spread across all five channels as dominant driver &mdash; the PCA composite leads 32, country mixed-effects 20, prevalence outlier 16, Mahalanobis 11, coherence 8 &mdash; evidence the channels measure genuinely different failure modes. And the score independently recovers a known fact: flag rates fall from ~17% for surveys from the 1980s&ndash;90s to ~5.5% over the last two decades, tracking the real secular improvement in survey quality.</p>
 
           <div class="viz">
-            <div class="vtitle"><h3>Does it catch the bad ones?</h3><span class="vsub">134 historically rejected surveys, scored out-of-sample</span></div>
+            <div class="vtitle"><h3>Held to a supervised standard</h3><span class="vsub">AUC discriminating historically rejected surveys &middot; cross-fitted (k&nbsp;=&nbsp;5, 10 &times; 3 seeds), country-clustered bootstrap</span></div>
             <div class="lift">
               <div class="row">
-                <div class="rl"><span>Flagged by at least one channel</span><span><b>85%</b> <span class="x">2.8&times; baseline</span></span></div>
+                <div class="rl"><span>Naive combination &mdash; count of channels flagging</span><span><b>0.76</b></span></div>
                 <div class="track">
-                  <div class="base" style="width:30%"><span class="blab">baseline 30%</span></div>
-                  <div class="fill" style="width:85%">85% of rejected surveys</div>
+                  <div class="fill" style="width:76%;background:#8A97AC">AUC 0.76</div>
                 </div>
               </div>
               <div class="row">
-                <div class="rl"><span>Classified Tier 1 (highest priority)</span><span><b>50%</b> <span class="x">~12&times; baseline</span></span></div>
+                <div class="rl"><span>Shipped composite &mdash; equal-weight rank-mean</span><span><b>0.87</b> <span class="x">within 0.02 of the supervised ceiling</span></span></div>
                 <div class="track">
-                  <div class="base" style="width:4%"></div>
-                  <div class="fill" style="width:50%">50% of rejected surveys</div>
+                  <div class="fill" style="width:87%">AUC 0.87</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <p>The split means reviewers ignore 70% of the database with confidence and concentrate on the 4% that three or more methods independently distrust. Because the rejected-survey validation was scored <strong>out-of-sample</strong>, the lift over baseline shows the system is tracking real quality, not memorising the training set.</p>
+          <p>The combination rule was chosen the way a supervised model would be &mdash; candidate rules compared by cross-fitted AUC with a country-clustered bootstrap &mdash; yet the shipped model never sees a rejection label. A supervised benchmark trained directly on those labels reaches 0.885; the one-class composite gives up just 0.02 of that. On held-out evidence, <strong>84% of historically rejected surveys are flagged by at least one channel</strong>, and a review queue capped at 10% of the database holds roughly <strong>5&times; more rejected surveys than random selection</strong>. In April 2026 the WHO/UNICEF/World Bank JME partners reviewed the methodology and endorsed it for the global database &mdash; &ldquo;a screening tool, not a decision tool.&rdquo;</p>
+
+          <div class="aside">
+            <div class="at">Correct twice, in two languages</div>
+            <p>Every scorer is implemented twice &mdash; <strong>Python</strong> for model building, <strong>R</strong> for production scoring inside UNICEF&rsquo;s pipeline &mdash; and the implementations agree to ~10<sup>&#8722;14</sup> on channel scores, enforced as a release gate alongside 123 Python and 22 R test suites. The frozen model bundle (24 files, ~0.5&nbsp;MB, Parquet) scores a new survey offline: no Python, no corpus, no refit.</p>
+          </div>
 
           <div class="terminal">
-            <div class="tt"><i style="background:#E5484D"></i><i style="background:#E3B007"></i><i style="background:#1F9D63"></i><span class="fn">production · no Python required</span></div>
-<pre><span class="c"># the entire deliverable: one R script, callable from Stata</span>
-$ <span class="b">Rscript</span> score_survey.R data/new_survey.csv
-<span class="c">→</span> loading pre-fitted models (Parquet)…
-<span class="c">→</span> 136 indicators · 5 channels scored
-<span class="g">✓ TIER 3</span>  — 1 channel flagged (digit preference)        <span class="c">0.8s</span></pre>
+            <div class="tt"><i style="background:#E5484D"></i><i style="background:#E3B007"></i><i style="background:#1F9D63"></i><span class="fn">production &middot; offline R module inside the JME pipeline</span></div>
+<pre><span class="c"># score any survey against the frozen model bundle</span>
+$ <span class="b">Rscript</span> score_survey.R Albania-2008-DHS-ANT.dta
+<span class="c">→</span> 131 indicators · 5 channel severities · 1 composite score
+<span class="r">⚑ C1 0.908</span>  above the 0.771 threshold → review, evidence workbook written
+$ <span class="b">Rscript</span> score_survey.R Turkmenistan-2024-MICS-ANT.dta
+<span class="g">✓ C1 0.536</span>  below threshold → clear</pre>
           </div>
         </div>
 
@@ -175,7 +181,7 @@ $ <span class="b">Rscript</span> score_survey.R data/new_survey.csv
         <div class="cs-section">
           <div class="takeaway">
             <div class="lab">The takeaway</div>
-            <p>Automated screening only earns trust when it hands reviewers structured evidence &mdash; not a verdict. Five methods, five reasons, one queue.</p>
+            <p>Reviewers don&rsquo;t trust a score &mdash; they trust evidence. Fitted on accepted surveys, validated against rejected ones, reproduced to machine precision in a second language: that&rsquo;s what lets 90% clear without a second look.</p>
           </div>
         </div>
 
