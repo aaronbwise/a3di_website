@@ -54,7 +54,7 @@
           <div class="m"><div class="mk">Role</div><div class="mv">Design &amp; build</div></div>
           <div class="m"><div class="mk">Stack</div><div class="mv">Python (model build) &middot; R (production scoring)</div></div>
           <div class="m"><div class="mk">Scale</div><div class="mv">1,091 surveys &middot; 167 countries</div></div>
-          <div class="m"><div class="mk">Timeline</div><div class="mv">Dec 2025&ndash;Jul 2026</div></div>
+          <div class="m"><div class="mk">Timeline</div><div class="mv">Dec 2025&ndash;Jul 2026 &middot; delivered</div></div>
         </div>
       </div>
 
@@ -177,11 +177,39 @@ $ <span class="b">Rscript</span> score_survey.R Turkmenistan-2024-MICS-ANT.dta
           </div>
         </div>
 
+        <!-- PRODUCTION -->
+        <div class="cs-section">
+          <div class="lab"><span class="ix">04</span> Production</div>
+          <h2>From validated model to a stage in UNICEF&rsquo;s own pipeline</h2>
+          <p>Delivery didn&rsquo;t end at a validated score. In July 2026 the scoring module was vendored into UNICEF&rsquo;s anthropometric data-processing pipeline as a native batch stage &mdash; code their team versions, runs and maintains alongside the pipeline it serves. It reads the pipeline&rsquo;s prepped Stata files directly and scores each survey against the frozen model bundle, fully offline: no Python, no network, no refit, no author in the loop.</p>
+
+          <div class="flow">
+            <div class="node"><div class="nk">Input</div><div class="nt">Prepped survey</div><div class="nd">Stata .dta, straight from the pipeline&rsquo;s own prep stage</div></div>
+            <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="node"><div class="nk">Score</div><div class="nt">Frozen bundle</div><div class="nd">24 Parquet files &middot; 0.5&nbsp;MB &middot; offline</div></div>
+            <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="node" style="border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-50)"><div class="nk">Evidence</div><div class="nt">Per-survey outputs</div><div class="nd">verdict CSV &middot; Excel workbook &middot; PDF dashboard</div></div>
+          </div>
+
+          <div class="channels cols-3">
+            <div class="chan"><div class="id">1</div><h3>Lives in their repo</h3><p>The R module and model bundle ship inside UNICEF&rsquo;s pipeline repository &mdash; versioned, reviewed and released with the code that calls them, not maintained alongside it</p></div>
+            <div class="chan"><div class="id">2</div><h3>Evidence workbook</h3><p>Every verdict carries an Excel workbook: each individual indicator set against the accepted-corpus median and 90th percentile, with a plain-language codebook</p></div>
+            <div class="chan"><div class="id">3</div><h3>Reported-only screen</h3><p>Surveys with no microdata at all are still screened &mdash; reported estimates run through both prevalence channels, with per-channel verdicts and a trend chart</p></div>
+          </div>
+
+          <div class="aside">
+            <div class="at">Designed for the operator, not the demo</div>
+            <p>A batch pipeline fails at the edges, so the module guards them. A survey from a country in the training corpus scores normally. A real country with no training history &mdash; Canada, whose only surveys couldn&rsquo;t be scored &mdash; <strong>auto-passes and scores against its region</strong>. A name the system has never seen <strong>hard-stops with the nearest known keys</strong>, because a typo that scores silently is worse than a run that stops.</p>
+          </div>
+
+          <p>The engagement closed with the artefacts that keep the system running without me: a refit runbook with a pre-flight checklist, a partner-facing methodology document, the WHO evidence pack behind every design decision, and an end-to-end harness proving the Python and R implementations agree to 10<sup>&#8722;14</sup> on reference surveys. Refits stay in Python; scoring runs in R inside UNICEF&rsquo;s pipeline &mdash; and the model reviewers see is exactly the model that was validated.</p>
+        </div>
+
         <!-- TAKEAWAY -->
         <div class="cs-section">
           <div class="takeaway">
             <div class="lab">The takeaway</div>
-            <p>Reviewers don&rsquo;t trust a score &mdash; they trust evidence. Fitted on accepted surveys, validated against rejected ones, reproduced to machine precision in a second language: that&rsquo;s what lets 90% clear without a second look.</p>
+            <p>Reviewers don&rsquo;t trust a score &mdash; they trust evidence. And a system isn&rsquo;t delivered until it runs in the client&rsquo;s own pipeline, on their files, without its author in the loop: handed over, not just handed in.</p>
           </div>
         </div>
 
@@ -206,7 +234,7 @@ $ <span class="b">Rscript</span> score_survey.R Turkmenistan-2024-MICS-ANT.dta
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
-        <span>&copy; 2025 Aaron Wise</span>
+        <span>&copy; 2026 Aaron Wise</span>
         <div class="footer-links">
           <a href="mailto:aaron@a3di.dev">aaron@a3di.dev</a>
           <a href="https://www.aaronbwise.com" target="_blank" rel="noopener noreferrer">CV</a>

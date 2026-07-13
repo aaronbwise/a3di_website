@@ -205,6 +205,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;letter-s
 
 /* channel cards */
 .channels{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:8px}
+.channels.cols-3{grid-template-columns:repeat(3,1fr)}
 .chan{border:1px solid var(--line);border-radius:11px;padding:16px 14px;background:var(--surface);box-shadow:var(--shadow-sm);position:relative}
 .chan .id{font-family:var(--mono);font-weight:600;font-size:13px;color:#fff;background:var(--accent);width:26px;height:26px;border-radius:7px;display:grid;place-items:center;margin-bottom:12px}
 .chan h3{font-size:15px;margin-bottom:6px;letter-spacing:-.01em}
@@ -290,6 +291,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;letter-s
 @media (max-width:880px){
   .service-list,.work-grid{grid-template-columns:1fr}
   .channels{grid-template-columns:repeat(2,1fr)}
+  .channels.cols-3{grid-template-columns:1fr}
   .cs-stats{grid-template-columns:repeat(2,1fr)}
   .glance{grid-template-columns:1fr}
   .glance .g{border-right:0;border-bottom:1px solid var(--line)}
