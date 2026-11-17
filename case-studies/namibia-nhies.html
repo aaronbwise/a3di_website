@@ -10,6 +10,14 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-431J69QZ4M');
+    // Conversion signals: email-link clicks and clicks through to the contact form
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var h = a.getAttribute('href');
+      if (h.indexOf('mailto:') === 0) gtag('event', 'email_click');
+      else if (h.indexOf('#contact') !== -1) gtag('event', 'contact_cta_click');
+    });
   </script>
   <title>Informing National Fortification Policy | Aaron Wise</title>
   <meta name="description" content="Multi-source analysis of household food consumption and micronutrient intake to inform Namibia's mandatory food fortification strategy." />
@@ -17,6 +25,8 @@
   <meta property="og:url" content="https://www.a3di.dev/case-studies/namibia-nhies.html" />
   <meta property="og:title" content="Informing National Fortification Policy | Aaron Wise" />
   <meta property="og:description" content="Multi-source analysis of household food consumption and micronutrient intake to inform Namibia's mandatory food fortification strategy." />
+  <meta property="og:image" content="https://www.a3di.dev/og-image.png" />
+  <link rel="canonical" href="https://www.a3di.dev/case-studies/namibia-nhies.html" />
   <link rel="icon" type="image/jpeg" href="/img/favicon.jpg" />
   <link rel="stylesheet" href="/style.css" />
 </head>
@@ -37,6 +47,7 @@
             <li><a href="/case-studies/namibia-nhies.html">Namibia NHIES Fortification</a></li>
           </ul>
         </div>
+        <a href="/#contact" class="nav-cta">Contact</a>
       </nav>
     </div>
   </header>
@@ -64,6 +75,7 @@
           <div class="m"><div class="mk">Scale</div><div class="mv">14 regions &middot; 7 vehicles</div></div>
           <div class="m"><div class="mk">Timeline</div><div class="mv">Jul 2020 &ndash; Apr 2021</div></div>
         </div>
+        <p class="cs-hero-cta">Working on something similar? <a href="/#contact">Get in touch &rarr;</a></p>
       </div>
 
       <div class="cs-body">
@@ -149,10 +161,11 @@
             <div>
               <h3>Turning multi-source data into policy evidence?</h3>
               <p>I harmonise messy, multi-source survey and composition data into reproducible analysis your stakeholders can explore and update.</p>
+              <p class="cta-alt">Or email <a href="mailto:aaron@a3di.dev">aaron@a3di.dev</a></p>
             </div>
             <div style="display:flex;gap:12px;flex-wrap:wrap">
-              <a class="btn" href="mailto:aaron@a3di.dev">aaron@a3di.dev &rarr;</a>
-              <a class="btn ghost" href="https://www.a3di.dev/#work">See more work</a>
+              <a class="btn" href="/#contact">Discuss a similar project &rarr;</a>
+              <a class="btn ghost" href="/#work">See more work</a>
             </div>
           </div>
         </div>

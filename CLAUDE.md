@@ -16,15 +16,23 @@ No test framework or linter is configured.
 
 Multi-page static site (Vite MPA mode). Each page is a standalone HTML file sharing `style.css`:
 
-- `index.html` — Homepage (intro, services with bullet details, case study cards)
+- `index.html` — Homepage (intro with CTA buttons, services with bullet details, case study cards, `#contact` form)
+- `thanks.html` — Contact-form success page (`noindex`; fires the GA `generate_lead` event)
 - `case-studies/alive-and-thrive.html` — A&T multi-country MCHN equity analysis
 - `case-studies/unicef-dq-screener.html` — UNICEF JME data quality screening pipeline
+- `case-studies/namibia-nhies.html` — Namibia NHIES food consumption / fortification analysis
 
-Vite config (`vite.config.js`) lists all pages as rollup inputs. To add a page: create the HTML file, add it to `rollupOptions.input`, and link to it from the nav dropdown.
+Vite config (`vite.config.js`) lists all pages as rollup inputs. To add a page: create the HTML file, add it to `rollupOptions.input`, link to it from the nav dropdown, and add it to `public/sitemap.xml` (plus a `<link rel="canonical">` in its head).
 
 ### Navigation
 
-All pages share a header with a CSS-only dropdown menu under "Case Studies" (hover/focus to open, no JS). The dropdown links to both case study pages. Nav, header, and footer markup is duplicated across all HTML files — update all four when changing navigation.
+All pages share a header with a CSS-only dropdown menu under "Case Studies" (hover/focus to open, no JS). The dropdown links to the case study pages, and a `.nav-cta` "Contact" button links to `/#contact`. Nav, header, and footer markup is duplicated across all HTML files — update all five when changing navigation.
+
+### Contact and conversion tracking
+
+The only contact form lives in the homepage `#contact` section and is handled by **Netlify Forms** (`data-netlify="true"`, honeypot field `bot-field`, redirects to `/thanks.html`). Form detection and email notifications are configured in the Netlify dashboard, not in this repo. Case-study CTAs link to `/#contact` rather than `mailto:`.
+
+Each page's inline gtag block also sends two GA4 events via one click listener: `email_click` (any `mailto:` link) and `contact_cta_click` (any link to `#contact`). `thanks.html` sends `generate_lead`. This is the only JavaScript on the site besides gtag itself.
 
 ## Styling
 
