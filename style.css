@@ -40,7 +40,7 @@
 
 /* ---------- reset & base ---------- */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
 body{
   font-family:var(--body);color:var(--ink);background:var(--paper);
   line-height:1.6;font-size:16.5px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
@@ -68,10 +68,12 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;letter-s
 .site-header .brand-name::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-50)}
 .site-header .brand-name:hover{color:var(--accent);text-decoration:none}
 .site-header .brand-sub{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.04em}
-.site-header nav{display:flex;gap:22px;font-family:var(--mono);font-size:13.5px}
+.site-header nav{display:flex;align-items:center;gap:22px;font-family:var(--mono);font-size:13.5px}
 .site-header nav a{color:var(--ink-2)}
 .site-header nav a:hover{color:var(--accent);text-decoration:none}
 .site-header nav a:focus-visible{color:var(--accent)}
+.site-header nav a.nav-cta{background:var(--accent);color:#fff;font-weight:600;padding:7px 14px;border-radius:8px}
+.site-header nav a.nav-cta:hover,.site-header nav a.nav-cta:focus-visible{background:var(--accent-ink);color:#fff}
 
 .nav-dropdown{position:relative}
 .nav-dropdown-toggle{cursor:pointer}
@@ -107,6 +109,8 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;letter-s
 .intro{padding:72px 0 40px;border-bottom:1px solid var(--line)}
 .intro h1{font-size:clamp(30px,4.8vw,52px);line-height:1.05;max-width:20ch;margin-bottom:20px}
 .intro p{font-size:clamp(17px,2vw,20px);color:var(--ink-2);max-width:62ch}
+.intro-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.intro.thanks{border-bottom:0;padding-bottom:72px}
 
 #services{padding:56px 0;border-bottom:1px solid var(--line)}
 #services>h2,#work>h2{font-size:clamp(22px,3vw,30px);margin-bottom:28px}
@@ -121,6 +125,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;letter-s
 .service-details a{color:var(--accent)}
 
 #work{padding:56px 0}
+#contact{padding-bottom:16px}
 .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .work-card{
   display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);
@@ -170,6 +175,8 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;letter-s
 .cs-meta .m:last-child{border-right:0}
 .cs-meta .mk{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#8E9CB8}
 .cs-meta .mv{font-size:14.5px;color:#DCE3F0;margin-top:4px;font-weight:500}
+.cs-hero-cta{font-family:var(--mono);font-size:13px;color:#9FAEC8;margin-top:22px}
+.cs-hero-cta a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 
 /* ---------- body ---------- */
 .cs-body{padding:8px 44px 46px}
@@ -264,11 +271,28 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;letter-s
 
 /* CTA */
 .cta{background:linear-gradient(120deg,var(--accent),#1B37A8);color:#fff;border-radius:var(--radius);padding:34px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:8px}
-.cta h3{color:#fff;font-size:22px;margin-bottom:6px;max-width:24ch}
+.cta h2,.cta h3{color:#fff;font-size:22px;margin-bottom:6px;max-width:24ch}
 .cta p{color:#D5DEFB;font-size:15px;margin:0;max-width:42ch}
 .btn{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--accent-ink);font-family:var(--mono);font-size:13.5px;font-weight:600;padding:13px 22px;border-radius:9px;white-space:nowrap}
 .btn:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 8px 20px -8px rgba(0,0,0,.4)}
 .btn.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.3)}
+/* button variants for light backgrounds */
+.btn.solid{background:var(--accent);color:#fff}
+.btn.solid:hover,.btn.solid:focus-visible{background:var(--accent-ink)}
+.btn.outline{background:var(--surface);color:var(--ink);border:1px solid var(--line-2)}
+.cta a:not(.btn){color:#fff;text-decoration:underline;text-underline-offset:3px}
+.cta .cta-alt{font-family:var(--mono);font-size:13px;margin-top:12px}
+
+/* contact (homepage): CTA band with a Netlify form */
+.cta.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;padding:40px}
+.cta.contact h2{font-size:clamp(22px,3vw,28px);margin-bottom:10px}
+.contact-form{display:grid;gap:12px}
+.contact-form .hp{display:none}
+.contact-form label{display:grid;gap:5px;font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:#D5DEFB}
+.contact-form input,.contact-form textarea{width:100%;font-family:var(--body);font-size:16px;line-height:1.4;color:var(--ink);background:#fff;border:1px solid transparent;border-radius:8px;padding:10px 12px}
+.contact-form textarea{resize:vertical;min-height:104px}
+.contact-form input:focus-visible,.contact-form textarea:focus-visible,.contact-form button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.contact-form button.btn{border:0;cursor:pointer;justify-self:start}
 
 /* mini charts (range plots) */
 .mini{margin:4px 0 16px}
@@ -301,11 +325,13 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;letter-s
   .flow .arrow{display:none}
   .cs-meta .m{border-right:0;padding-right:0;margin-right:0;width:50%;margin-bottom:14px}
   .site-header .container{height:auto;flex-direction:column;gap:.6rem;padding-top:14px;padding-bottom:14px}
+  html{scroll-padding-top:120px}
+  .cta.contact{grid-template-columns:1fr;gap:26px}
 }
 @media (max-width:560px){
   .cs-stats{grid-template-columns:1fr 1fr}
   .channels{grid-template-columns:1fr}
-  .cta,.takeaway{padding:24px}
+  .cta,.cta.contact,.takeaway{padding:24px}
   .container{padding:0 18px}
   .footer-content{flex-direction:column;text-align:center}
 }

@@ -10,6 +10,14 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-431J69QZ4M');
+    // Conversion signals: email-link clicks and clicks through to the contact form
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var h = a.getAttribute('href');
+      if (h.indexOf('mailto:') === 0) gtag('event', 'email_click');
+      else if (h.indexOf('#contact') !== -1) gtag('event', 'contact_cta_click');
+    });
   </script>
   <title>Uncovering Who Is Furthest Behind | Aaron Wise</title>
   <meta name="description" content="Multi-country MCHN equity analysis for Alive & Thrive across Cambodia, Lao PDR, and Viet Nam." />
@@ -17,6 +25,8 @@
   <meta property="og:url" content="https://www.a3di.dev/case-studies/alive-and-thrive.html" />
   <meta property="og:title" content="Uncovering Who Is Furthest Behind | Aaron Wise" />
   <meta property="og:description" content="Multi-country MCHN equity analysis for Alive & Thrive across Cambodia, Lao PDR, and Viet Nam." />
+  <meta property="og:image" content="https://www.a3di.dev/og-image.png" />
+  <link rel="canonical" href="https://www.a3di.dev/case-studies/alive-and-thrive.html" />
   <link rel="icon" type="image/jpeg" href="/img/favicon.jpg" />
   <link rel="stylesheet" href="/style.css" />
 </head>
@@ -37,6 +47,7 @@
             <li><a href="/case-studies/namibia-nhies.html">Namibia NHIES Fortification</a></li>
           </ul>
         </div>
+        <a href="/#contact" class="nav-cta">Contact</a>
       </nav>
     </div>
   </header>
@@ -64,6 +75,7 @@
           <div class="m"><div class="mk">Data</div><div class="mv">15+ rounds &middot; Cambodia, Lao PDR, Viet Nam</div></div>
           <div class="m"><div class="mk">Timeline</div><div class="mv">Apr &ndash; Dec 2022</div></div>
         </div>
+        <p class="cs-hero-cta">Working on something similar? <a href="/#contact">Get in touch &rarr;</a></p>
       </div>
 
       <div class="cs-body">
@@ -171,10 +183,11 @@
             <div>
               <h3>Need to know who your averages are hiding?</h3>
               <p>I build reproducible, configuration-driven pipelines that turn scattered survey rounds into equity evidence your team can extend.</p>
+              <p class="cta-alt">Or email <a href="mailto:aaron@a3di.dev">aaron@a3di.dev</a></p>
             </div>
             <div style="display:flex;gap:12px;flex-wrap:wrap">
-              <a class="btn" href="mailto:aaron@a3di.dev">aaron@a3di.dev &rarr;</a>
-              <a class="btn ghost" href="https://www.a3di.dev/#work">See more work</a>
+              <a class="btn" href="/#contact">Discuss a similar project &rarr;</a>
+              <a class="btn ghost" href="/#work">See more work</a>
             </div>
           </div>
         </div>

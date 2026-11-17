@@ -10,14 +10,23 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-431J69QZ4M');
+    // Conversion signals: email-link clicks and clicks through to the contact form
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var h = a.getAttribute('href');
+      if (h.indexOf('mailto:') === 0) gtag('event', 'email_click');
+      else if (h.indexOf('#contact') !== -1) gtag('event', 'contact_cta_click');
+    });
   </script>
-  <title>Aaron Wise | A3DI</title>
-  <meta name="description" content="Data pipelines, code migration, and applied statistics for international development organisations." />
+  <title>Survey data pipelines and applied statistics for international development | Aaron Wise</title>
+  <meta name="description" content="Reproducible survey data pipelines, code migration, and applied statistics for international development organisations &mdash; built in Python, R, and Stata." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.a3di.dev/" />
-  <meta property="og:title" content="Aaron Wise | A3DI" />
-  <meta property="og:description" content="Data pipelines, code migration, and applied statistics for international development organisations." />
+  <meta property="og:title" content="Survey data pipelines and applied statistics for international development | Aaron Wise" />
+  <meta property="og:description" content="Reproducible survey data pipelines, code migration, and applied statistics for international development organisations &mdash; built in Python, R, and Stata." />
   <meta property="og:image" content="https://www.a3di.dev/og-image.png" />
+  <link rel="canonical" href="https://www.a3di.dev/" />
   <link rel="icon" type="image/jpeg" href="/img/favicon.jpg" />
   <link rel="stylesheet" href="/style.css" />
 </head>
@@ -38,6 +47,7 @@
             <li><a href="/case-studies/namibia-nhies.html">Namibia NHIES Fortification</a></li>
           </ul>
         </div>
+        <a href="/#contact" class="nav-cta">Contact</a>
       </nav>
     </div>
   </header>
@@ -50,6 +60,10 @@
         and analyse survey and administrative data in Python, R, or Stata. I make
         existing workflows scalable, maintainable, and ready for production.
       </p>
+      <div class="intro-actions">
+        <a class="btn solid" href="#contact">Discuss a project &rarr;</a>
+        <a class="btn outline" href="#work">See case studies</a>
+      </div>
     </section>
 
     <section id="services">
@@ -136,6 +150,33 @@
             <span class="tag">Policy</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="cta contact">
+        <div>
+          <h2>Tell me about your data problem.</h2>
+          <p>
+            A couple of lines is enough to start &mdash; the data you have, the
+            deadline, and where the current process is breaking down.
+          </p>
+          <p class="cta-alt">Prefer email? <a href="mailto:aaron@a3di.dev">aaron@a3di.dev</a></p>
+        </div>
+        <form name="contact" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hp"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <label>Name
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>Email
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>What are you working on?
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn">Send message &rarr;</button>
+        </form>
       </div>
     </section>
   </main>
